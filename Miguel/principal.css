@@ -1,0 +1,466 @@
+* {
+	font-family:arial;
+	margin:0;
+	padding:0;
+}
+
+body {
+/*	background:url(mosaico.jpg) */
+	background:#e6e6e6;
+	min-width:800px;
+}
+
+header, .main, footer {
+	width:95%;
+	margin:15px auto;
+}
+
+header .nivel1 {
+	height:35px/**//**/;
+	display:block;
+	clear:right;
+	margin-bottom:5px;
+}
+
+header .nivel1 .logo img {
+	width:auto;
+	height:35px/**/;
+	float:left;
+	margin-right:0.5%;
+}
+
+header .nivel1 .tituloDePagina p {
+	font-size:30px;
+	font-weight:bold;
+	color:#bd0000;
+	float:left;
+	margin-right:4.5%;
+}
+
+header .nivel1 .slogan p {
+	font-size:20px;
+	color:#585858;
+	padding-top:10px;
+}
+
+header  .nivel2{
+	height:35px/**/;
+	font-size:15px;
+}
+
+header .nivel2 nav {
+	width:56%;
+	height:35px/**/;
+	box-sizing:border-box;
+/*	background:#528fd5; */
+	background:#bd0000;
+	float:left;
+	margin-right:0.5%;
+}
+
+header .nivel2 nav ul {
+	width:100%; /*similar al padre (nav)*/
+	list-style:none;
+	float:left;	
+}
+
+header .nivel2 nav ul li {
+	float:left;
+	width: 25%;
+}
+
+header .nivel2 nav ul li a {
+	height:35px/**/; /* El mismo alto que el header nav */
+	box-sizing:border-box;
+	padding: 9px 15%;  /* 10px eje vertical y 20px eje horizontal*/
+	display:block; /*hay que dejarlo explicito porque los enlaces por defecto <a> solo tienen padding hacia los costados, con esta modificacion hay padding en los 2 ejes*/
+	color:#fff;
+	text-decoration:none; /*Se elimina el subrayado de los enlaces*/
+}
+
+header .nivel2 nav ul li a:hover { /*Cambio de estado cuando el cursor pasa por arriba del enlace sin clickearlo*/
+/*	background:#75acec; */
+	background:#ff4444;  
+/*	background:#ff2020; */
+}
+
+header .nivel2 .loginBar {
+	width:43.5%;
+	height:35px/**/;
+	box-sizing:border-box;
+	background:#585858;
+	float:left;
+}
+
+header .nivel2 .loginBar ul {
+	width:100%;
+	list-style:none;
+	float:left;
+}
+
+header .nivel2 .loginBar ul li {
+	float:left;
+	width:50%;
+}
+
+header .nivel2 .loginBar ul li a {
+	height:35px/**/;
+	box-sizing:border-box;
+	padding: 9px 15%;
+	display:block;
+	color:#fff;
+	text-decoration:none;
+}
+
+header .nivel2 .loginBar ul li a:hover {
+	background:#868686;
+}
+
+/*
+header .nivel2 form {
+	width:43%;
+	height:35px;
+	box-sizing:border-box;
+	padding-top:0.2%;
+	padding-bottom:0.2%;
+	padding-left:1%;
+	background:#585858;
+	float:left;
+}
+
+header .nivel2 form .titulo {
+	font-size:85%;
+	color:#fff;
+	padding:0.15%;
+	display:block;
+	width: 100%;
+}
+
+header .nivel2 form .inputsYLabels input {
+	font-size:85%;
+	float:left;
+	width:20%;
+	margin-right:2%;
+}
+
+header .nivel2 form .buttonLog input{
+	height:20px;
+	width: 20px;
+	float:left;
+	margin-right:5%;
+}
+
+header .nivel2 form .buttonReg input{
+	height:20px;
+	width:75px;
+	display:inline;
+} 
+*/
+.main aside {
+	width:20%;
+	box-sizing:border-box;
+	padding:1%;
+/*	background:#ff8000; */
+	background:#585858;
+	color:#fff;
+	float:left;
+	margin-right:1.5%;
+	margin-bottom:20px;
+}
+
+.main aside .filtroDeBusqueda .inputsTexto input, select{
+	width:95%;
+	margin-right:2.5%;
+	margin-left:2.5%;
+	margin-bottom:2.5%;
+}
+
+.main aside .filtroDeBusqueda .inputsTexto input{
+	height:30px;
+	margin-bottom:10px;
+}
+
+.main aside .filtroDeBusqueda ul {
+	list-style:none;
+	margin-right:2.5%;
+	margin-left:2.5%;
+}
+
+.main aside .filtroDeBusqueda ul li {
+	border-style:solid;
+	border-width:1px;
+	border-color:#ccc;
+}
+
+.main aside .filtroDeBusqueda ul li a {
+	box-sizing:border-box;
+	display:block;
+	text-decoration:none;
+	color:#fff;
+	font-size:13px;
+	padding:2px;
+}
+
+.main aside .filtroDeBusqueda ul li a:hover {
+	background:#868686;
+}
+
+.main aside .filtroDeBusqueda .radios .radiosTitulo p {
+	margin-left:2.5%;
+	margin-right:2.5%;
+	margin-top:5%;
+	font-size:14px;
+}
+
+.main aside .filtroDeBusqueda .radios .rango {
+	margin:2.5%;
+}
+
+.main aside .filtroDeBusqueda .radios .rango p{
+	margin-left:15px;
+	font-size:13px;
+}
+
+.main aside .filtroDeBusqueda .radios input {
+	float:left;
+}
+
+.main .articles {
+	width:78.5%; /* 70% - 1.5% del margin-right */
+	box-sizing:border-box; /*Esta propiedad indica que el ancho de la section (width) ya no toma mas en
+cuenta unicamente al ancho del CONTENIDO de la misma sino que ahora tambien toma en cuenta el padding 
+y el border (el margin no porque es externo), esto permite definir un width fijo (ej 30%) y al agregar 
+padding y border no va a afectar al width ya que "no se suma" al width sino que gracias a esta propiedad ahora
+es parte del mismo. De la otra forma habria que modificar el width al agregar un padding de 2%.. 2% de
+cada lado por lo tanto habria que restarle 4% al width para que retenga el mismo ancho.*/
+	margin-bottom:20px;
+	padding:1%;
+	float:left;
+	background:#fff;
+	
+}
+
+.main .articles article {
+	border-style:solid;
+	border-color:#fff;
+	border-width:1px;
+	padding:5px;
+	width:139px;
+	float:left;
+	margin:1px;
+	box-sizing:border-box;
+	
+}
+
+.main .articles article:hover {
+	border-color:#a60000;
+	cursor:pointer;
+}
+
+.main .articles article p {
+	overflow:hidden;
+    text-overflow:ellipsis;
+	white-space:nowrap;
+	margin:2px;
+}
+
+.main .articles article .descripcion .titulo p {
+	font-size:12px;
+	color:#0000FF;
+}
+
+.main .articles article .descripcion .precio p {
+	font-size:12px;
+	font-weight:bold;
+	color:#A60000;
+}
+
+.main .articles article .descripcion .titulo p:hover{
+	white-space:normal; /* Hace que si el texto supera la linea siga en la de abajo, si se deja en "nowrap" el parrafo
+sigue estrictamente una sola linea saliendose de los contenedores */
+	background-color:#fff;
+	overflow:visible;
+}
+
+.main .articles .contenedorImagen {	
+	border-style:solid;
+	border-width:1px;
+	border-color:#ccc;
+	box-sizing:border-box;
+	height:126px;
+	width:126px;
+    position: relative;
+}
+	
+.main .articles article img {	
+	max-height:120px;
+	max-width:120px;
+	margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+
+footer {
+	box-sizing:border-box;
+	padding:10px;
+	background:#000;
+	color:#fff;
+	clear:both; /*Propiedad que especifica que no se admiten elementos flotantes a los costados, con both
+	indico que ni a derecha ni a izquierda se los admiten, por lo tanto el footer ira debajo de dichos elementos
+	flotantes */
+	text-align:center;
+}
+
+#modal {
+	position: absolute;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	opacity: 0.4;  
+	background-color: #000;
+	left: 0;
+	top: 0;
+	overflow: auto;
+}
+
+.ventanaContenedor {
+	opacity:100%;
+	width:430px;
+	background:#fff;
+	position: absolute;
+	top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+	z-index:2;
+	padding: 10px;
+	border-radius: 4px;
+	box-shadow: 0 3px 20px rgba(0,0,0,0.9);
+	text-shadow: 0 1px 0 #fff;
+}
+
+.ventanaContenedor a[href="#close"] {
+   display: block;
+   position: absolute;
+   right: 7px;
+   top: 5px;
+   width: 1.7em;
+   height: 1em;
+   padding: 1px 1px 1px 2px;
+   text-decoration: none;
+   text-shadow: none;
+   text-align: center;
+   font-weight: bold;
+   background: #e7e7e7;
+   color: #ccc;
+   border: 1px solid #ccc; 
+   border-radius: 4px;
+}
+
+.ventanaContenedor a[href="#close"]:hover {
+   color:#fff;
+   background-color:#bd0000;
+   border-color:#bd0000;
+}
+
+.contenidoVentanaLogin .tituloVentanaLogin {
+	margin-bottom:15px;
+}
+
+.contenidoVentanaLogin .tituloVentanaLogin  p {
+	font-size:17px;
+}
+
+.contenidoVentanaLogin .contenedorLinea {
+	width:100%;
+	height:40px;
+	box-sizing:border-box;
+} 
+
+.contenidoVentanaLogin .contenedorLinea input {
+	box-sizing:border-box;
+	border-radius:3px;
+	height:30px;
+	font-size:13px;
+	margin-left:2px;
+}
+
+.contenidoVentanaLogin .contenedorLinea .contenedorLabel {
+	width:100px;
+	height:30px;
+	float:left;
+}
+
+.contenidoVentanaLogin .contenedorLinea .contenedorLabel label {
+	font-size:14px;
+	display:block;
+	text-align:right;
+	margin-right:5px;
+	margin-top:5px;
+}
+
+.contenidoVentanaLogin .contenedorLinea a {
+	font-size:13px;
+	margin-left:7px;
+}
+
+.contenidoVentanaLogin .buttLoginContenedor {
+	height:30px;
+	position:relative;
+}
+
+.contenidoVentanaLogin .buttLoginContenedor input {
+	margin-left:110px;
+	padding:4px 8px;
+	border-radius:4px;
+	font-size:14px;
+	background-color:#bd0000;
+	color:#fff;
+	float:left;
+}
+
+.contenidoVentanaLogin .buttLoginContenedor input:hover {
+	background:#ff0000;
+}
+
+.contenidoVentanaLogin .buttLoginContenedor .alertaFaltaCuenta {
+	position:absolute;
+	font-size:13px;
+	color:red;
+	margin-left:200px;
+	margin-top:5px;
+}
+
+.contenidoVentanaLogin .buttLoginContenedor .alertaFaltaContraseña {
+	position:absolute;
+	font-size:13px;
+	color:red;
+	margin-left:200px;
+	margin-top:5px;
+}
+
+.contenidoVentanaLogin .footerVentanaLogin hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+	margin:12px auto;
+}
+
+.contenidoVentanaLogin .footerVentanaLogin p, .contenidoVentanaLogin .footerVentanaLogin a {
+	font-size:13px;
+	margin:auto 5px;
+	display:inline;
+}
+
+
+
+
+
+

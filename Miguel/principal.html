@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Subastas </title>
+	<link rel="stylesheet" href="principal.css"> 
+	<script type="text/javascript" src="principal.js"></script>
+</head>
+
+<body>
+	<header>
+		<div class="nivel1">
+			<div class="logo"><img src="logo.png"></div>
+			<div class="tituloDePagina"><p>Bestnid</p></div>
+			<div class="slogan"><p>Se elige con el corazon</p></div>
+		</div>
+		<div class="nivel2">			
+			<nav>
+				<ul>
+					<li> <a href="#"> Inicio </a> </li>
+					<li> <a href="#"> Acerca de </a> </li>
+					<li> <a href="#"> Servicios </a> </li>
+					<li> <a href="#"> Contacto </a> </li>
+				</ul>
+			</nav>
+			
+			<section class="loginBar">
+				<ul>
+					<li> <a href="#" onclick="abrirVentanaModal('contenidoVentanaLogin','modal','ventanaContenedor')"> Ingresar </a> </li>
+					<li> <a href="formularioDeRegistro.html"> Registrarse </a> </li>
+					<li><a href="miCuenta.html"> Mi Cuenta</a></li>
+
+				</ul>
+			</section>
+			
+	<!--	<form action="formularioDeRegistro.html"> 
+				<section class="inputsYlabels">
+					<div class="titulo"> Si ya est&aacute;s registrado ingres&aacute; a tu cuenta: </div>
+					<input type="text" placeholder="Cuenta" name="cuenta" id="cuenta"> 
+					<input type="password" placeholder="Contrase&ntilde;a" name="contraseña" id="contraseña">
+				</section>
+				
+				<section class="buttonLog">
+					<input type="button" name="buttonLog" value=">" onclick="validarFormLog();">
+				</section>
+				<section class="buttonReg">
+					<input type="submit" name="buttonReg" value="Registrarse">
+				</section>				
+					
+			</form> -->
+		</div>		
+	</header>
+
+	<section class="main">
+		<aside>
+			<div class="filtroDeBusqueda">
+				<div class="inputsTexto">
+					<input type="search" placeholder="Nombre de producto" name="busqueda">
+					<select>
+						<option value="categoria1">Categor&iacute;a 1</option>
+						<option value="categoria2">Categor&iacute;a 2</option>
+						<option value="categoria3">Categor&iacute;a 3</option>
+					</select>
+				</div>
+				<ul>
+					<li> <a href="#"> Categoria 1 </a> </li>
+					<li> <a href="#"> Categoria 2 </a> </li>
+					<li> <a href="#"> Categoria 3 </a> </li>
+					<li> <a href="#"> Categoria 4 </a> </li>
+					<li> <a href="#"> Categoria 5 </a> </li>
+					<li> <a href="#"> Categoria 6 </a> </li>
+					<li> <a href="#"> Categoria 7 </a> </li>
+				</ul>	
+				<div class="radios">
+					<div class="radiosTitulo"><p>Rango de precios:</p></div>
+					<div class="rango"> <input type="radio" name="rangoX" value="a"> <p>1$ - 50$</p> </div>
+					<div class="rango"> <input type="radio" name="rangoX" value="b"> <p>50$ - 250$</p> </div>
+					<div class="rango"> <input type="radio" name="rangoX" value="c"> <p>250$ - 1000$</p> </div>
+					<div class="rango"> <input type="radio" name="rangoX" value="d"> <p>Mas de 1000$</p> </div>
+				</div>
+			</div>
+		</aside>
+		<section class="articles">
+			<article>
+				<div class="contenedorImagen">
+					<img src="productos/marco.jpg">
+				</div>	
+				<div class="descripcion">
+					<div class="titulo">
+						<p> Espejo sin marco </p>
+					</div>
+					<div class="precio">
+						<p> 50$ </p>
+					</div>
+				</div>
+			</article>
+			
+			<article>
+				<div class="contenedorImagen">
+					<img src="productos/criptonita.jpg">
+				</div>
+				<div class="descripcion">
+					<div class="titulo">
+						<p> Criptonita </p>
+					</div>
+					<div class="precio">
+						<p> 87.000$ </p>
+					</div>
+				</div>	
+			</article>
+			
+			<article>
+				<div class="contenedorImagen">
+					<img src="productos/sillonFreddieMercury.jpg">
+				</div>	
+				<div class="descripcion">
+					<div class="titulo">
+						<p> Sill&oacute;n donde se sent&oacute; Freddie Mercury </p>
+					</div>
+					<div class="precio">
+						<p> 17.000$ </p>
+					</div>
+				</div>
+			</article>
+			
+			<article>
+				<div class="contenedorImagen">
+					<img src="productos/aceiteYvinagre.jpg">
+				</div>
+				<div class="descripcion">
+					<div class="titulo">
+						<p> Aceite y vinagre &#40;no incluye envases&#41; </p>
+					</div>
+					<div class="precio">
+						<p> 15$ </p>
+					</div>
+				</div>	
+			</article>
+			
+			<article>
+				<div class="contenedorImagen">
+					<img src="productos/llama.jpg">
+				</div>
+				<div class="descripcion">
+					<div class="titulo">
+						<p> Llama de Tilcara </p>
+					</div>
+					<div class="precio">
+						<p> 15.000$ </p>
+					</div>
+				</div>	
+			</article>
+			
+			<article>
+				<div class="contenedorImagen">
+					<img src="productos/guanteDeAcero.jpg">
+				</div>
+				<div class="descripcion">
+					<div class="titulo">
+						<p> Guante de acero </p>
+					</div>
+					<div class="precio">
+						<p> 270$ </p>
+					</div>
+				</div>	
+			</article>
+		
+		</section>
+		
+		
+	</section>
+	
+	<footer>
+		<p>
+			 ahora es de keyboarts arts papa :) desarrollo web profesional a domicilio &#40;?&#41;
+		</p>	
+	</footer>
+	
+	<!-- ----------- Ventanas modales --------------- -->
+	
+	<div id="modal" style="display:none" onclick="cerrarVentanaModal('ventanaContenedor','contenidoVentanaLogin','modal','alertaFaltaCuenta','alertaFaltaContraseña')"></div>
+	<div id="ventanaContenedor" class="ventanaContenedor" style="display:none">
+	
+		<a href="#close" title="Cerrar" onclick="cerrarVentanaModal('ventanaContenedor','contenidoVentanaLogin','modal','alertaFaltaCuenta','alertaFaltaContraseña')">X</a>
+		
+		<div id="contenidoVentanaLogin" class="contenidoVentanaLogin" style="display:none">
+		
+			<div class="tituloVentanaLogin"> <p>Ingresar a Mi cuenta</p> </div>
+			<div class="contenedorLinea">
+				<div class="contenedorLabel"> <label for="loginCuenta"> Cuenta: </label> </div>
+				<input type="text" placeholder="Escriba su cuenta" name="cuenta" id="loginCuenta">
+				<br>
+			</div>
+			<div class="contenedorLinea">
+				<div class="contenedorLabel"> <label for="loginContraseña"> Contrase&ntilde;a: </label> </div>
+				<input type="password" placeholder="Escriba su contrase&ntilde;a" name="contraseña" id="loginContraseña">
+				<a href="#"> Olvid&eacute; mi contrase&ntilde;a </a>
+			</div>		
+			<div class="buttLoginContenedor">
+				<input type="button" name="buttonLogin" value="Ingresar" onclick="validarFormLogin('loginCuenta','loginContraseña','alertaFaltaCuenta','alertaFaltaContraseña');">
+				<div class="alertaFaltaCuenta" id="alertaFaltaCuenta" style="display:none"> Debe escribir su cuenta! </div>
+				<div class="alertaFaltaContraseña" id="alertaFaltaContraseña" style="display:none"> Debe escribir su contrase&ntilde;a! </div>			
+			</div>			
+			<div class="footerVentanaLogin">
+				<hr>
+				<p> &iquest;A&uacute;n no tienes una cuenta? </p> <a href="#"> Reg&iacute;strate </a>
+			</div>	
+		</div>		
+	</div>	
+	
+	
+	
+</body>
+</html>

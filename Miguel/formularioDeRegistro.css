@@ -1,0 +1,158 @@
+* {
+	font-family:arial;
+	margin:0;
+	padding:0;
+}
+
+body {
+	background:#e6e6e6;
+	min-width:550px;
+}	
+
+header, .main {
+	width:95%;
+	margin:15px auto;
+}
+
+header {
+	height:35px;
+	display:block;
+	clear:right;
+	margin-bottom:5px;
+}
+
+header .logo img {
+	width:auto;
+	height:35px/**/;
+	float:left;
+	margin-right:0.5%;
+}
+
+header .tituloDePagina p {
+	font-size:30px;
+	font-weight:bold;
+	color:#bd0000;
+	float:left;
+	margin-right:4.5%;
+}
+
+header .slogan p {
+	font-size:20px;
+	color:#585858;
+	padding-top:10px;
+}
+
+hr {
+	margin:10px 5%;
+}
+
+.main {
+	position:relative;
+	height:700px;
+	width:100%;
+}
+
+.main form {
+	width:470px;
+	background:#fff;
+	margin:0;
+	padding-right:20px;
+	padding-left:20px;
+	padding-top:15px;
+	padding-bottom:15px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -50%);
+}
+
+.main form .encabezado {
+	display:block;
+	height:34px;
+	padding-bottom:7px;
+}
+
+.main form .encabezado .titulo {
+	font-size:25px;
+	display:inline;
+	float:left;
+	padding-right:70px;
+}
+
+.main form .encabezado a[id="close"] {
+	text-decoration: none;
+	text-shadow: none;
+	text-align: center;
+	font-weight: bold;
+	background: #e2e2e2;
+	color: #9A9A9A;
+	border: 1px solid #9A9A9A; 
+	border-radius: 2px; 
+}
+
+.main form .encabezado a[id="close"]:hover {
+	color:#fff;
+	background-color:#bd0000;
+	border-color:#bd0000;
+}
+
+.main form .introduccion {
+	font-size:12px;
+	padding-bottom:5px;
+}
+
+.main .linea {
+	display:block;
+	clear:both;
+}
+
+.main .linea .entrada {
+	float:left;
+	margin-right:15px;
+}
+
+.main .linea .entrada label {
+	font-size:15px;
+	display:block;
+}
+
+.main .linea .entrada input {
+	margin-bottom:20px;
+}
+
+.main .linea .entrada input[type="text"], .linea .entrada input[type="email"], .linea .entrada input[type="password"] {
+	width:250px;
+	padding:5px;
+}
+
+.main .linea .msjError {
+	display:block;
+}
+
+.main .linea .msjError p {
+	display:block;
+	padding-top:15px;
+	color:red;
+	font-size:12px;
+}
+
+#msjErrorSexo {
+	padding-top:0px;
+}
+
+.main form input[type="submit"] {
+	width:100%;
+	height:40px;
+	margin-top:10px;
+	margin-bottom:0px;
+	background:#1668c4;
+	color:#fff;
+	border:none;
+}
+
+.main form input[type="submit"]:hover {
+	background:#4a88f4;
+	cursor:pointer;
+}
+
+
