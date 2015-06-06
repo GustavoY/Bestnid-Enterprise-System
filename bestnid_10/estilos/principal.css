@@ -1,0 +1,313 @@
+* {
+	font-family:arial;
+	margin:0;
+	padding:0;
+}
+
+body {
+/*	background:url(mosaico.jpg) */
+	background:#e6e6e6;
+	min-width:800px;
+}
+
+.main aside {
+	width:20%;
+	box-sizing:border-box;
+	padding:1%;
+/*	background:#ff8000; */
+	background:#585858;
+	color:#fff;
+	float:left;
+	margin-right:1.5%;
+	margin-bottom:20px;
+}
+
+.main aside .filtroDeBusqueda .inputsTexto input, select{
+	width:95%;
+	margin-right:2.5%;
+	margin-left:2.5%;
+	margin-bottom:2.5%;
+}
+
+.main aside .filtroDeBusqueda .inputsTexto input{
+	height:30px;
+	margin-bottom:10px;
+}
+
+.main aside .filtroDeBusqueda .categorias ul {
+	list-style:none;
+	margin-right:2.5%;
+	margin-left:2.5%;
+}
+
+.main aside .filtroDeBusqueda .categorias ul li {
+	border-style:solid;
+	border-width:1px;
+	border-color:#868686;
+	
+	box-sizing:border-box;
+	display:block;
+	text-decoration:none;
+	color:#fff;
+	font-size:14px;
+	padding:2px;
+	background:#747474;
+}
+
+.main aside .filtroDeBusqueda .categorias ul li:hover {
+	background:#A4A4A4;
+	border-color:#A4A4A4;
+	cursor:pointer;
+}
+/*
+.main aside .filtroDeBusqueda .radios .radiosTitulo p {
+	margin-left:2.5%;
+	margin-right:2.5%;
+	margin-top:5%;
+	font-size:14px;
+}
+
+.main aside .filtroDeBusqueda .radios .rango {
+	margin:2.5%;
+}
+
+.main aside .filtroDeBusqueda .radios .rango p{
+	margin-left:15px;
+	font-size:13px;
+}
+
+.main aside .filtroDeBusqueda .radios input {
+	float:left;
+}
+*/
+.main .articles {
+	width:78.5%; /* 70% - 1.5% del margin-right */
+	box-sizing:border-box; /*Esta propiedad indica que el ancho de la section (width) ya no toma mas en
+cuenta unicamente al ancho del CONTENIDO de la misma sino que ahora tambien toma en cuenta el padding 
+y el border (el margin no porque es externo), esto permite definir un width fijo (ej 30%) y al agregar 
+padding y border no va a afectar al width ya que "no se suma" al width sino que gracias a esta propiedad ahora
+es parte del mismo. De la otra forma habria que modificar el width al agregar un padding de 2%.. 2% de
+cada lado por lo tanto habria que restarle 4% al width para que retenga el mismo ancho.*/
+	margin-bottom:20px;
+	padding:1%;
+	float:left;
+	background:#fff;
+}
+
+.main .articles article {
+	border-style:solid;
+	border-color:#DADADA;
+	border-width:1px;
+	padding:5px;
+	width:137px;
+	float:left;
+	margin:3px;
+	box-sizing:border-box;
+/*	overflow:hidden; */
+
+} 
+
+.main .articles article:hover {
+	border-color:#a60000;
+	cursor:pointer;
+	/*white-space:normal;*/ /* Hace que si el texto supera la linea siga en la de abajo, si se deja en "nowrap" el parrafo
+sigue estrictamente una sola linea saliendose de los contenedores*/ 
+	background-color:#fff;
+	/*overflow:visible;*/
+}
+
+.main .articles article p {
+	overflow:hidden;
+    text-overflow:ellipsis;
+	white-space:nowrap;  
+	margin:2px;
+}
+/*	white-space:normal;*/
+	  /*Hace que si el texto supera la linea siga en la de abajo, si se deja en "nowrap" el parrafo
+sigue estrictamente una sola linea saliendose de los contenedores*/ 
+/*	overflow:visible; */
+
+.main .articles article .descripcion .titulo p {
+	font-size:12px;
+	color:#0000FF; 
+}
+
+.main .articles .contenedorImagen {	
+	border-style:solid;
+	border-width:1px;
+	border-color:#EFEFEF;
+	box-sizing:border-box;
+	height:126px;
+	width:126px;
+    position: relative;
+}
+	
+.main .articles article img {	
+	max-height:120px;
+	max-width:120px;
+	margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+
+footer {
+	box-sizing:border-box;
+	padding:10px;
+	background:#000;
+	color:#fff;
+	clear:both; /*Propiedad que especifica que no se admiten elementos flotantes a los costados, con both
+	indico que ni a derecha ni a izquierda se los admiten, por lo tanto el footer ira debajo de dichos elementos
+	flotantes */
+	text-align:center;
+}
+
+#modal {
+	position: absolute;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	opacity: 0.4;  
+	background-color: #000;
+	left: 0;
+	top: 0;
+	overflow: auto;
+}
+
+.ventanaContenedor {
+	opacity:100%;
+	width:430px;
+	background:#fff;
+	position: absolute;
+	top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+	z-index:2;
+	padding: 10px;
+	border-radius: 4px;
+	box-shadow: 0 3px 20px rgba(0,0,0,0.9);
+	text-shadow: 0 1px 0 #fff;
+}
+
+.ventanaContenedor a[href="#close"] {
+   display: block;
+   position: absolute;
+   right: 7px;
+   top: 5px;
+   width: 1.7em;
+   height: 1em;
+   padding: 1px 1px 1px 2px;
+   text-decoration: none;
+   text-shadow: none;
+   text-align: center;
+   font-weight: bold;
+   background: #e7e7e7;
+   color: #ccc;
+   border: 1px solid #ccc; 
+   border-radius: 4px;
+}
+
+.ventanaContenedor a[href="#close"]:hover {
+   color:#fff;
+   background-color:#bd0000;
+   border-color:#bd0000;
+}
+
+.contenidoVentanaLogin .tituloVentanaLogin {
+	margin-bottom:15px;
+}
+
+.contenidoVentanaLogin .tituloVentanaLogin  p {
+	font-size:17px;
+}
+
+.contenidoVentanaLogin .contenedorLinea {
+	width:100%;
+	height:40px;
+	box-sizing:border-box;
+} 
+
+.contenidoVentanaLogin .contenedorLinea input {
+	box-sizing:border-box;
+	border-radius:3px;
+	height:30px;
+	font-size:13px;
+	margin-left:2px;
+}
+
+.contenidoVentanaLogin .contenedorLinea .contenedorLabel {
+	width:100px;
+	height:30px;
+	float:left;
+}
+
+.contenidoVentanaLogin .contenedorLinea .contenedorLabel label {
+	font-size:14px;
+	display:block;
+	text-align:right;
+	margin-right:5px;
+	margin-top:5px;
+}
+
+.contenidoVentanaLogin .contenedorLinea a {
+	font-size:13px;
+	margin-left:7px;
+}
+
+.contenidoVentanaLogin .buttLoginContenedor {
+	height:30px;
+	position:relative;
+}
+
+.contenidoVentanaLogin .buttLoginContenedor input {
+	margin-left:110px;
+	padding:4px 8px;
+	border-radius:4px;
+	font-size:14px;
+	background-color:#bd0000;
+	color:#fff;
+	float:left;
+}
+
+.contenidoVentanaLogin .buttLoginContenedor input:hover {
+	background:#ff0000;
+}
+
+.contenidoVentanaLogin .buttLoginContenedor .alertaFaltaCuenta {
+	position:absolute;
+	font-size:13px;
+	color:red;
+	margin-left:200px;
+	margin-top:5px;
+}
+
+.contenidoVentanaLogin .buttLoginContenedor .alertaFaltaContraseña {
+	position:absolute;
+	font-size:13px;
+	color:red;
+	margin-left:200px;
+	margin-top:5px;
+}
+
+.contenidoVentanaLogin .footerVentanaLogin hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+	margin:12px auto;
+}
+
+.contenidoVentanaLogin .footerVentanaLogin p, .contenidoVentanaLogin .footerVentanaLogin a {
+	font-size:13px;
+	margin:auto 5px;
+	display:inline;
+}
+
+
+
