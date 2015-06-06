@@ -19,7 +19,8 @@ include '/principal_header.php';
 		<aside>
 			<div class="filtroDeBusqueda">
 				<div class="inputsTexto">
-					<input type="search" placeholder="Nombre de producto" id="inputSearch" name="busqueda" onchange="reImprimirArticulos('titulo','','','articles');">
+					<input type="search" placeholder="Nombre de producto" id="inputSearch" name="busqueda">
+					<button id="searchSubmit" onclick="reImprimirArticulos('titulo','','','articles');"> Buscar </button>
 				</div>
 				<div class="categorias" id="categorias">
 					<ul>
