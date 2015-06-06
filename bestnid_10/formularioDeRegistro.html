@@ -26,14 +26,11 @@
 				</div>		
 				<a id="close" href="principal.php"> volver a la p&aacute;gina principal </a>
 			</div>	
-			<div class="introduccion">
-				<p> Para registrarse en el sistema y crear una cuenta debe ingresar sus datos en este formulario. Si ya posee una cuenta de usuario puede <a href="#">iniciar sesi&oacute;n</a>.</p>
-				<br>
-			</div>	
+			
 			<div class="linea">
 				<div class="entrada">
 					<label for="nombre"> Nombre: </label>
-					<input type="text" placeholder="Ingrese su nombre" name="inputDato[]" id="nombre" maxlength="20" onkeyup="comprobarElemento('inputDato[]','msjError[]','nombre','0')">
+					<input type="text" placeholder="Ingrese su nombre" name="inputDato[]" id="nombre" maxlength="40" onkeyup="comprobarElemento('inputDato[]','msjError[]','nombre','0')">
 				</div>
 				<div class="msjError">
 					<p name="msjError[]" id="msjErrorNombre"> </p>
@@ -120,7 +117,7 @@
 			</div>
 			<!-- ['nombre','apellido','email','ciudad','sexo','contrasenia','contraseniaReescrita'],['msjErrorNombre','msjErrorApellido',msjErrorEmail','msjErrorCiudad','msjErrorSexo','msjErrorContrasenia','msjErrorContraseniaReescrita'] -->
 			<input type="button" value="Crear cuenta" 
-			onclick="comprobarFormulario('inputDato[]','msjError[]')" ><!-- este el boton que envia la señal a la pagina principal -->
+			onclick="comprobarFormulario('inputDato[]','msjError[]')"  ><!-- este el boton que envia la señal a la pagina principal -->
 		</form>
 	</section>	
 </body>

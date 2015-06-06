@@ -263,9 +263,11 @@ footer {
 .contenidoVentanaLogin .buttLoginContenedor {
 	height:30px;
 	position:relative;
+	left: 5%;
 }
 
-.contenidoVentanaLogin .buttLoginContenedor input {
+
+.contenidoVentanaLogin .buttLoginContenedor  button {
 	margin-left:110px;
 	padding:4px 8px;
 	border-radius:4px;
@@ -273,17 +275,18 @@ footer {
 	background-color:#bd0000;
 	color:#fff;
 	float:left;
+	width:150px;
+	height:30px;
 }
 
-.contenidoVentanaLogin .buttLoginContenedor input:hover {
+.contenidoVentanaLogin .buttLoginContenedor button:hover {
 	background:#ff0000;
 }
 
-.contenidoVentanaLogin .buttLoginContenedor .alertaFaltaCuenta {
-	position:absolute;
-	font-size:13px;
+.contenidoVentanaLogin .alert {
+	
+	font-size:17px;
 	color:red;
-	margin-left:200px;
 	margin-top:5px;
 }
 

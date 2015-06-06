@@ -3,13 +3,13 @@
 	include $root.'/bestnid/phpFunciones/conexion.php';
 	include $root.'/bestnid/phpQuerys/querys.php';
 	
-	echo $root.'/bestnid/phpFunciones/conexion.php';
+	
 
 	$nombre= $_REQUEST['nombre'];
 	$apellido=$_REQUEST['apellido'];
 	$email=$_REQUEST['email'];
 	$telFijo=$_REQUEST['telFijo'];
-	$telMovil=$_REQUEST['telMovil'];c 
+	$telMovil=$_REQUEST['telMovil'];
 	$contrasenia=$_REQUEST['contrasenia'];
 	$contraseniaR=$_REQUEST['contraseniaR'];
 	$tipoDeUsuario= "usuario";

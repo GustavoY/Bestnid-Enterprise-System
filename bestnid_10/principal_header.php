@@ -33,7 +33,7 @@
 					</li>
 					<li>
 						<div id="on" style="display:none;">
-							<a href="#"> Mi Cuenta</a>
+							<a href="#"> Mi Cuenta </a>
 						</div>
 					</li>
 					<li>
@@ -43,7 +43,7 @@
 					</li>
 					<li>
 					 	<div id="registrarse" >
-							<a href='scripts/scriptsPhp/formularioDeRegistro.html'> Registrarse </a>
+							<a href='formularioDeRegistro.html'> Registrarse </a>
 						</div>
 					</li>
 				</ul>
