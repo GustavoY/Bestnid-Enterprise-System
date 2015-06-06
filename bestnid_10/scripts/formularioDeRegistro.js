@@ -239,9 +239,9 @@ function comprobarReinsercionDeContrasenia(inputName, msjErrorName, indiceContra
 			}
 			j++;
 		}
+
 		if(formularioCorrecto){
-			
-			$.ajax({
+						$.ajax({
 					url: "scripts/scriptsPhp/formularioDeRegistro.php",
 					type: "POST",
 					//async: false,
@@ -255,6 +255,7 @@ function comprobarReinsercionDeContrasenia(inputName, msjErrorName, indiceContra
 						contraseniaR : inputContraseniaR
 					},
 					success: function(data){
+						alert(data);
 						if(data == 0){
 							alert("error no se guardo con exito");
 						}

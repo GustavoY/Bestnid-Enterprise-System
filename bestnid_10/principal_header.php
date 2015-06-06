@@ -43,7 +43,7 @@
 					</li>
 					<li>
 					 	<div id="registrarse" >
-							<a href='scripts/scriptsPhp/formularioDeRegistro.html'> Registrarse </a>
+							<a href='formularioDeRegistro.html'> Registrarse </a>
 						</div>
 					</li>
 				</ul>
