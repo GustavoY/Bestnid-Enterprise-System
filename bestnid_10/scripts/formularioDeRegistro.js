@@ -182,6 +182,13 @@ function comprobarContrasenia(inputName, msjErrorName, indiceInput){
 			msjError.innerHTML="";
 			inputCorrecto[indiceInput] = true;
 		}
+	}
+	//alert(parseInt(indiceInput,10)+1);
+	
+	//alert(document.getElementsByName(inputName)[(parseInt(indiceInput,10)+1)]);
+	if((inputCorrecto[indiceInput] == true) && (document.getElementsByName(inputName)[(parseInt(indiceInput,10)+1)].value.length > 0 )){
+		comprobarReinsercionDeContrasenia(inputName,msjErrorName,indiceInput,(parseInt(indiceInput,10)+1));
+
 	}	
 }
 
@@ -255,13 +262,12 @@ function comprobarReinsercionDeContrasenia(inputName, msjErrorName, indiceContra
 						contraseniaR : inputContraseniaR
 					},
 					success: function(data){
-						alert(data);
 						if(data == 0){
-							alert("error no se guardo con exito");
+							alert("Error el usuario ya existe");
 						}
 						else{
-							
-							alert("se guardo con exito");
+							alert("Se registro exitosamente");
+							window.location.href='principal.php';
 						}
 					}
 				});
@@ -295,4 +301,11 @@ function comprobarElemento(inputName,msjErrorName,tipoElemento,indiceInput){
 			comprobarReinsercionDeContrasenia(inputName,msjErrorName,indiceInput-1,indiceInput);
 		break;
 	}
+
+	
 }
+
+//redireccion a la paguina que se desee
+	// function newPage(url){
+	// 	window.location.ref=url;
+	// }
