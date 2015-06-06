@@ -21,23 +21,36 @@ body {
 	margin-right:1.5%;
 	margin-bottom:20px;
 }
-
+/*
 .main aside .filtroDeBusqueda .inputsTexto input, select{
 	width:95%;
 	margin-right:2.5%;
 	margin-left:2.5%;
 	margin-bottom:2.5%;
-}
+} */
 
 .main aside .filtroDeBusqueda .inputsTexto input{
 	height:30px;
-	margin-bottom:10px;
+	width:70%;
+	margin-bottom:5px;
+	margin-right:1.5%;
+	margin-left:1.5%;
+	float:left;
+}
+
+.main aside .filtroDeBusqueda .inputsTexto button{
+	height:30px;
+	width:24%;
+	margin-bottom:15px;
+	margin-left:1.5%;
+	margin-right:1.5%;
+	font-size:11px;
 }
 
 .main aside .filtroDeBusqueda .categorias ul {
 	list-style:none;
-	margin-right:2.5%;
-	margin-left:2.5%;
+	margin-right:1.5%;
+	margin-left:1.5%;
 }
 
 .main aside .filtroDeBusqueda .categorias ul li {
