@@ -25,6 +25,7 @@
 			session_start();
 			$_SESSION['ingreso']='SI';
 			$_SESSION['nombre']=$array[2];
+			$_SESSION['id']=$array[0];
 		}
 
 	}

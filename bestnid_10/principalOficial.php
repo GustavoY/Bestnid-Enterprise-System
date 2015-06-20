@@ -1,19 +1,26 @@
 <?php
+
 include '/phpFunciones/principal_funciones.php';
-include '/principal_header.php';
+// session_start();
+//include '/principal_header.php';
+
 ?>
-<!DOCTYPE html>
+
 <html>
 <head>
 	<title> Subastas </title>
 	<link rel="stylesheet" href="estilos/principal.css"> 
-	<script src="scripts/librerias/jquery-1.11.3.min.js"></script>
+	<!-- // <script src="scripts/librerias/jquery-1.11.3.min.js"></script> -->
 	<script src="scripts/reImprimirArticulos.js"></script>
 	<script src="scripts/principal.js"></script>
 	<script type="text/javascript" src="scripts/principalVentanaModal.js"></script>
+	<link rel="stylesheet" href="estilos/principal_header.css">
 	
 </head>
-
+<?php 
+	include '/principal_header.php'; // tiene que estar en esta parte 
+	//xq se tiene que ejecutar el javascript del principal el metodo iniciarsecion()
+ ?> 
 <body>
 	<section class="main">
 		<aside>
@@ -73,7 +80,7 @@ include '/principal_header.php';
 	</section>
 	
 	<footer>
-		<p>	Keyboard Arts desarrollo web </p>	
+		<p>	Keyboard Arts® desarrollo web </p>	
 	</footer>
 	
 	<!-- ----------- Ventanas modales --------------- -->
@@ -121,16 +128,19 @@ include '/principal_header.php';
 		<div id="contenidoVentanaLogin" class="contenidoVentanaLogin" style="display:none">
 		
 			<div class="tituloVentanaLogin">
-				 <p>Ingresar a Mi cuenta</p>
+				 <p align=center>Ingresar a Mi cuenta</p>
 			</div>
 			<div class="alert" style="display:none;" id="error">
-                <p>Usuario o Password no identificados</p><br>
+                <p align=center>Usuario o Password no identificados</p><br>
+            </div>
+            <div class="alert" style="display:none;" id="error-empty">
+                <p align=center>Campos Incompletos</p><br>
             </div>
 			<div class="contenedorLinea">
 				<div class="contenedorLabel"> 
 					<label for="email"> Cuenta: </label> 
 				</div>
-					<input type="text" placeholder="Ejemplo@hotmail.com" name="email" id="email"><br>
+					<input type="text" placeholder="Ejemplo@hotmail.com" name="email" id="email" required><br>
 			</div>
 			<div class="contenedorLinea">
 				<div class="contenedorLabel">
@@ -138,15 +148,14 @@ include '/principal_header.php';
 				</div>
 					<input type="password" placeholder="Escriba su contrase&ntilde;a" name="contraseña" id="password">
 				
-				<!--   CASO DE OLVIDAR password  -->
-				<a href="#"> Olvid&eacute; mi contrase&ntilde;a </a>
+				
 			</div>		
 			<div class="buttLoginContenedor">
-				<button onclick="iniciarSesion()" style='width:130px; height:25px'>Ingresar</button>
+				<button onclick="iniciarSesion()">Ingresar</button>
 			</div>			
 			<div class="footerVentanaLogin">
 				<hr>
-				<p> &iquest;A&uacute;n no tienes una cuenta? </p> <a href="#"> Reg&iacute;strate </a>
+				<p> &iquest;A&uacute;n no tienes una cuenta? </p> <a href="formularioDeRegistro.html"> Reg&iacute;strate </a>
 			</div>	
 		</div>		
 	</div>	

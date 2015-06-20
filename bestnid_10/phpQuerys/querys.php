@@ -94,10 +94,18 @@
 	//------------------------------------------------Usuarios-------------------------------------------------------------------------------
 	//---------------------------------------------------------------------------------------------------------------------------------------
 		function  queryUsuarioEmailEmail($email){
-		$query="SELECT `email`
-			FROM `bestnid`.`usuario`
-			WHERE email = '$email'";
-		$result = mysqli_query($GLOBALS['connection'],$query);
-		return $result;
-	}
+			$query="SELECT `email`
+				FROM `bestnid`.`usuario`
+				WHERE email = '$email'";
+			$result = mysqli_query($GLOBALS['connection'],$query);
+			return $result;
+		}
+
+		function queryUsuarioSubastas($idUsuario){
+			$query = "SELECT titulo
+					  FROM	Subasta
+					  WHERE idUsuario = '$idUsuario' ";
+			$result= mysqli_query($GLOBALS['connection'],$query);
+			return $result;
+		}
 ?>
