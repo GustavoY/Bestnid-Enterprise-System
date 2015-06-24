@@ -10,18 +10,19 @@ include '/phpFunciones/principal_funciones.php';
 <head>
 	<title> Subastas </title>
 	<link rel="stylesheet" href="estilos/principal.css"> 
-	<!-- // <script src="scripts/librerias/jquery-1.11.3.min.js"></script> -->
-	<script src="scripts/reImprimirArticulos.js"></script>
-	<script src="scripts/principal.js"></script>
-	<script type="text/javascript" src="scripts/principalVentanaModal.js"></script>
-	<link rel="stylesheet" href="estilos/principal_header.css">
-	
+	<script type="text/javascript" src="scripts/librerias/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="scripts/reImprimirArticulos.js"></script>
+	<script type="text/javascript" src="scripts/principal.js"></script>
+	<script type="text/javascript" src="scripts/principalVentanaModal.js"></script>	
 </head>
-<?php 
-	include '/principal_header.php'; // tiene que estar en esta parte 
-	//xq se tiene que ejecutar el javascript del principal el metodo iniciarsecion()
- ?> 
+
 <body>
+	<header>
+	<?php 
+		include '/principal_header.php'; // tiene que estar en esta parte 
+		//xq se tiene que ejecutar el javascript del principal el metodo iniciarsecion()
+	 ?> 
+	</header>
 	<section class="main">
 		<aside>
 			<div class="filtroDeBusqueda">
@@ -29,6 +30,12 @@ include '/phpFunciones/principal_funciones.php';
 					<input type="search" placeholder="Nombre de producto" id="inputSearch" name="busqueda">
 					<button id="searchSubmit" onclick="reImprimirArticulos('titulo','','','articles');"> Buscar </button>
 				</div>
+				
+				<div class="selectorOrden">
+					<input type="checkbox" id="checkboxOrden">
+					<p>Ordenar resultado</p>
+				</div>
+				
 				<div class="categorias" id="categorias">
 					<ul>
 						<?php $categorias = bddObtenerCategorias();
@@ -42,7 +49,9 @@ include '/phpFunciones/principal_funciones.php';
 					</ul>
 				</div>	
 				
-		<!--	<div class="radios">
+	<!--			<button id="botonOrdenar" onclick="reImprimirArticulos('titulo',)"
+				
+			<div class="radios">
 					<div class="radiosTitulo"><p>Rango de precios:</p></div>
 					<div class="rango"> <input type="radio" name="rangoX" value="a"> <p>1$ - 50$</p> </div>
 					<div class="rango"> <input type="radio" name="rangoX" value="b"> <p>50$ - 250$</p> </div>
@@ -52,30 +61,12 @@ include '/phpFunciones/principal_funciones.php';
 			</div>
 		</aside>
 		
-		<section class="articles" id="articles">
-			<?php 
-			$arts = bddObtenerArticulos("titulo, idImagenPrincipal", "", "", "","");
+		<section class="articles" id="articles"> <?php
+			$arts = bddObtenerArticulos("titulo, idImagenPrincipal, idSubasta", "", "", "", ""); 
 			//function bddObtenerArticulos($columnas, $criterioDeBusqueda, $discriminante, $criterioDeOrden, $patronOExacto)
 			//la documentacion de los parametros de la funcion invocada bddObtenerArticulos esta dentro de la implementacion de la funcion. 
-			
-			for($fila=0; $fila < count($arts["titulo"]); $fila++){ //preguntar por ["titulo"] o ["idImagenPrincipal"] es lo mismo, ya que ambas columnas tienen la misma cantidad de filas.. es una tabla..
-			?>					
-				<article>
-					<div class="contenedorImagen">
-						<img src="<?php echo("imagenesProductos/".$arts["idImagenPrincipal"][$fila].".jpg");?>">
-					</div>	
-					<div class="descripcion">
-						<div class="titulo">
-							<p> <?php echo($arts["titulo"][$fila]) ?> </p> <!-- imprime el titulo del articulo i (indice $fila) -->
-						</div>
-					</div>
-				</article>			
-			<?php
-			}
-			if(count($arts["titulo"]) == 0){
-				echo ("No se ha encontrado ningún producto");
-			}
-			?>	
+			//idSubasta se necesita para mandarlo por metodo GET a la pagina de detalle de subasta.
+			include "imprimirArticulos.php"; ?>
 		</section> 		
 	</section>
 	

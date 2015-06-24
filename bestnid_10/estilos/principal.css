@@ -1,20 +1,23 @@
-* {
+*{
 	font-family:arial;
 	margin:0;
 	padding:0;
 }
 
-body {
-/*	background:url(mosaico.jpg) */
+body{
 	background:#e6e6e6;
 	min-width:800px;
 }
 
-.main aside {
+header, .main, footer {
+	width:95%;
+	margin:15px auto;
+}
+
+.main aside{
 	width:20%;
 	box-sizing:border-box;
 	padding:1%;
-/*	background:#ff8000; */
 	background:#585858;
 	color:#fff;
 	float:left;
@@ -29,10 +32,13 @@ body {
 	margin-bottom:2.5%;
 } */
 
+.main aside .filtroDeBusqueda .inputsTexto{
+	margin-bottom:8px;
+}
+
 .main aside .filtroDeBusqueda .inputsTexto input{
 	height:30px;
 	width:70%;
-	margin-bottom:5px;
 	margin-right:1.5%;
 	margin-left:1.5%;
 	float:left;
@@ -41,10 +47,22 @@ body {
 .main aside .filtroDeBusqueda .inputsTexto button{
 	height:30px;
 	width:24%;
-	margin-bottom:15px;
 	margin-left:1.5%;
 	margin-right:1.5%;
 	font-size:11px;
+}
+
+.main aside .filtroDeBusqueda .selectorOrden{
+	margin-bottom:6px;
+}
+
+.main aside .filtroDeBusqueda .selectorOrden input{
+	float:left;
+	margin-left:1.5%;
+}
+
+.main aside .filtroDeBusqueda .selectorOrden p{
+	font-size:14px;
 }
 
 .main aside .filtroDeBusqueda .categorias ul {
@@ -94,7 +112,7 @@ body {
 }
 */
 .main .articles {
-	width:78.5%; /* 70% - 1.5% del margin-right */
+	width:78.5%; /* 80% - 1.5% del margin-right del aside */
 	box-sizing:border-box; /*Esta propiedad indica que el ancho de la section (width) ya no toma mas en
 cuenta unicamente al ancho del CONTENIDO de la misma sino que ahora tambien toma en cuenta el padding 
 y el border (el margin no porque es externo), esto permite definir un width fijo (ej 30%) y al agregar 
@@ -107,7 +125,8 @@ cada lado por lo tanto habria que restarle 4% al width para que retenga el mismo
 	background:#fff;
 }
 
-.main .articles article {
+.main .articles article a {
+	text-decoration:none;
 	border-style:solid;
 	border-color:#DADADA;
 	border-width:1px;
@@ -120,7 +139,7 @@ cada lado por lo tanto habria que restarle 4% al width para que retenga el mismo
 
 } 
 
-.main .articles article:hover {
+.main .articles article a:hover {
 	border-color:#a60000;
 	cursor:pointer;
 	/*white-space:normal;*/ /* Hace que si el texto supera la linea siga en la de abajo, si se deja en "nowrap" el parrafo
@@ -129,7 +148,7 @@ sigue estrictamente una sola linea saliendose de los contenedores*/
 	/*overflow:visible;*/
 }
 
-.main .articles article p {
+.main .articles article a p {
 	overflow:hidden;
     text-overflow:ellipsis;
 	white-space:nowrap;  
@@ -140,7 +159,7 @@ sigue estrictamente una sola linea saliendose de los contenedores*/
 sigue estrictamente una sola linea saliendose de los contenedores*/ 
 /*	overflow:visible; */
 
-.main .articles article .descripcion .titulo p {
+.main .articles article a .descripcion .titulo p {
 	font-size:12px;
 	color:#0000FF; 
 }
@@ -324,6 +343,3 @@ footer {
 	margin:auto 5px;
 	display:inline;
 }
-
-
-

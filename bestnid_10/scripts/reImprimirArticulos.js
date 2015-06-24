@@ -3,13 +3,20 @@ const rutaScriptPhp = "scripts/scriptsPhp/reImprimirArticulos.php";
 
 function reImprimirArticulos(criterioDeBusqueda, discriminante, criterioDeOrden, idElementoHtml){
 	var patronOExacto;
-
+	
 	if(criterioDeBusqueda == "titulo"){ //ya que si se busca por titulo no se le pasa nada al parametro 
 										//discriminante porque el discriminante en si esta todavia en el input del form.
 		discriminante = document.getElementById("inputSearch").value;
 		patronOExacto = "patron";
 	} else {
 		patronOExacto = "exacto";
+	}
+	
+	var checkBoxElem = document.getElementById("checkboxOrden");
+	if(checkBoxElem.checked){
+		criterioDeOrden = "titulo";
+	} else {
+		criterioDeOrden = "";
 	}
 	
 	var conexion;

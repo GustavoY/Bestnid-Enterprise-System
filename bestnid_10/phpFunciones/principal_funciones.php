@@ -3,7 +3,16 @@
 	include $root.'/bestnid/phpQuerys/querys.php'; //este archivo principal_funciones se ejecuta desde distintos archivos (distintos path)... 
 	//por eso es necesario trabajar con el path absoluto, porque el relativo va a cambiar segun desde donde se haga el include.	
 	
+	function eliminarCaracteresBlancos($str){
+		$str = str_replace(' ', '', $str);
+		return $str;
+	}
 	
+	function crearArreglosDeStr($columnas){
+		$columnas = eliminarCaracteresBlancos($columnas);
+		$arregloDeStrings = explode(',', $columnas);
+		return $arregloDeStrings;
+	}
 	
 	function bddObtenerArticulos($columnas, $criterioDeBusqueda, $discriminante, $criterioDeOrden, $patronOExacto){ 
 	//$patronOExacto tiene 2 valores posibles, "exacto" o "patron"...
@@ -33,14 +42,20 @@
 		}
 
 		$cantFilas = mysqli_num_rows($resultQuery);
-		$articulos = array("titulo" => array(),
-						  ("idImagen") => array()
-						  );
+		$arregloDeNombresDeColumnas = crearArreglosDeStr($columnas);	
+		$cantColumnas = count($arregloDeNombresDeColumnas);
+		
 		if ($cantFilas > 0) {
-		// output data of each row
 			while($row = mysqli_fetch_assoc($resultQuery)){
-				$articulos["titulo"][] = $row["titulo"];
-				$articulos["idImagenPrincipal"][] =	$row["idImagenPrincipal"];
+				for($i=0; $i<$cantColumnas; $i++){
+					$articulos[$arregloDeNombresDeColumnas[$i]][] = $row[$arregloDeNombresDeColumnas[$i]];
+			/*		se guarda en la matriz $articulos cada columna (iteran en el for) de cada tupla (filas/rows iteran en el while)
+					es equivalente a poner esto en el while (sin el for):
+					$articulos["titulo"][] = $row["titulo"];
+					$articulos["idImagenPrincipal"][] =	$row["idImagenPrincipal"];
+					pero usandolo asi se esta hardcodeando las columnas, y estas pueden cambiar de nombre y cantidad segun el parametro, por
+					eso la necesidad del for para las columnas */
+				}
 			}
 		}
 		return $articulos;
@@ -60,6 +75,12 @@
 		return $categorias;
 	}
 	
-	
-	
+	function bddEliminarSubasta($idSubasta){
+		$resultQuery = queryEliminarTuplas("Subasta","idSubasta",$idSubasta);
+	/*	try{
+			$resultQuery = queryEliminarTuplas("Subasta","idSubasta",$idSubasta);
+		} catch(Exception $e) {
+			echo "error al eliminar la subasta";
+		}	*/	
+	}
 ?>

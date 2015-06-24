@@ -76,6 +76,13 @@
 		return $result;
 	}
 	
+	function queryEliminarTuplas($tabla, $criterioDeBusqueda, $discriminante){
+		$query= "	UPDATE ".$tabla."
+					SET subastaValida = 0
+					WHERE ".$criterioDeBusqueda." = ".$discriminante;
+		$result = mysqli_query($GLOBALS['connection'], $query); //retorna false si hay error (creo jaja)
+	}
+	
 	
 	//---------------------------------------------------------------------------------------------------------------------------------------
 	//------------------------------------------------Categorias-----------------------------------------------------------------------------
@@ -94,9 +101,9 @@
 	//------------------------------------------------Usuarios-------------------------------------------------------------------------------
 	//---------------------------------------------------------------------------------------------------------------------------------------
 		function  queryUsuarioEmailEmail($email){
-			$query="SELECT `email`
-				FROM `bestnid`.`usuario`
-				WHERE email = '$email'";
+			$query = "SELECT `email`
+					  FROM `bestnid`.`usuario`
+				      WHERE email = '$email' ";
 			$result = mysqli_query($GLOBALS['connection'],$query);
 			return $result;
 		}

@@ -1,35 +1,18 @@
-* {
-	font-family:arial;
-	margin:0;
-	padding:0;
-}
-
-body {
-/*	background:url(mosaico.jpg) */
-	background:#e6e6e6;
-	min-width:800px;
-}
-
-header, .main, footer {
-	width:95%;
-	margin:15px auto;
-}
-
-header .nivel1 {
+.nivel1 {
 	height:35px/**//**/;
 	display:block;
 	clear:right;
 	margin-bottom:5px;
 }
 
-header .nivel1 .logo img {
+.nivel1 .logo img {
 	width:auto;
 	height:35px/**/;
 	float:left;
 	margin-right:0.5%;
 }
 
-header .nivel1 .tituloDePagina p {
+.nivel1 .tituloDePagina p {
 	font-size:30px;
 	font-weight:bold;
 	color:#bd0000;
@@ -37,18 +20,18 @@ header .nivel1 .tituloDePagina p {
 	margin-right:4.5%;
 }
 
-header .nivel1 .slogan p {
+.nivel1 .slogan p {
 	font-size:20px;
 	color:#585858;
 	padding-top:10px;
 }
 
-header  .nivel2{
+.nivel2{
 	height:35px/**/;
 	font-size:15px;
 }
 
-header .nivel2 nav {
+.nivel2 nav {
 	width:56%;
 	height:35px/**/;
 	box-sizing:border-box;
@@ -58,18 +41,18 @@ header .nivel2 nav {
 	margin-right:0.5%;
 }
 
-header .nivel2 nav ul {
+.nivel2 nav ul {
 	width:100%; /*similar al padre (nav)*/
 	list-style:none;
 	float:left;	
 }
 
-header .nivel2 nav ul li {
+.nivel2 nav ul li {
 	float:left;
 	width: 25%;
 }
 
-header .nivel2 nav ul li a {
+.nivel2 nav ul li a {
 	height:35px/**/; /* El mismo alto que el header nav */
 	box-sizing:border-box;
 	padding: 9px 15%;  /* 10px eje vertical y 20px eje horizontal*/
@@ -78,13 +61,13 @@ header .nivel2 nav ul li a {
 	text-decoration:none; /*Se elimina el subrayado de los enlaces*/
 }
 
-header .nivel2 nav ul li a:hover { /*Cambio de estado cuando el cursor pasa por arriba del enlace sin clickearlo*/
+.nivel2 nav ul li a:hover { /*Cambio de estado cuando el cursor pasa por arriba del enlace sin clickearlo*/
 /*	background:#75acec; */
 	background:#ff4444;  
 /*	background:#ff2020; */
 }
 
-header .nivel2 .loginBar {
+.nivel2 .loginBar {
 	width:43.5%;
 	height:35px/**/;
 	box-sizing:border-box;
@@ -92,18 +75,18 @@ header .nivel2 .loginBar {
 	float:left;
 }
 
-header .nivel2 .loginBar ul {
+.nivel2 .loginBar ul {
 	width:100%;
 	list-style:none;
 	float:left;
 }
 
-header .nivel2 .loginBar ul li {
+.nivel2 .loginBar ul li {
 	float:left;
 	width:50%;
 }
 
-header .nivel2 .loginBar ul li a {
+.nivel2 .loginBar ul li a {
 	height:35px/**/;
 	box-sizing:border-box;
 	padding: 9px 15%;
@@ -112,6 +95,6 @@ header .nivel2 .loginBar ul li a {
 	text-decoration:none;
 }
 
-header .nivel2 .loginBar ul li a:hover {
+.nivel2 .loginBar ul li a:hover {
 	background:#868686;
 }
