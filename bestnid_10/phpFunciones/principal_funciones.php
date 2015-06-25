@@ -52,7 +52,7 @@
 		$cantFilas = mysqli_num_rows($resultQuery);
 		$arregloDeNombresDeColumnas = crearArreglosDeStr($columnas);	
 		$cantColumnas = count($arregloDeNombresDeColumnas);
-		
+
 		if ($cantFilas > 0) {
 			while($row = mysqli_fetch_assoc($resultQuery)){
 				for($i=0; $i<$cantColumnas; $i++){
@@ -65,6 +65,8 @@
 					eso la necesidad del for para las columnas */
 				}
 			}
+		} else {
+			$articulos = null;
 		}
 		return $articulos;
 	}
