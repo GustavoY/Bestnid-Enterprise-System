@@ -1,7 +1,8 @@
 <?php 
 	$idSubasta = $_GET['idSubasta'];
 	include_once 'phpFunciones/principal_funciones.php';
-	bddEliminarSubasta($idSubasta);
+	bddEliminar('Subasta', 'idSubasta', $idSubasta);
+//	function bddEliminar($tabla, $criterioDeBusqueda, $discriminante)	
  ?>
  
 <html>

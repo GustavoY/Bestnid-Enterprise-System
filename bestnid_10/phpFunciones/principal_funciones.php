@@ -69,8 +69,8 @@
 		return $articulos;
 	}
 	
-	function bddEliminar($tabla, $criterioDeBusqueda, $discriminante){ //FALTA TOQUETEAR ( LO HACE ULISES)
-		$resultQuery = queryEliminarTuplas("Subasta","idSubasta",$idSubasta);
+	function bddEliminar($tabla, $criterioDeBusqueda, $discriminante){ 
+		$resultQuery = queryEliminarTuplas($tabla, $criterioDeBusqueda, $discriminante);
 	/*	try{
 			$resultQuery = queryEliminarTuplas("Subasta","idSubasta",$idSubasta);
 		} catch(Exception $e) {
