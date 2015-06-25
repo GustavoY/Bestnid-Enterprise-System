@@ -1,0 +1,10 @@
+footer {
+	box-sizing:border-box;
+	padding:10px;
+	background:#000;
+	color:#fff;
+	clear:both; /*Propiedad que especifica que no se admiten elementos flotantes a los costados, con both
+	indico que ni a derecha ni a izquierda se los admiten, por lo tanto el footer ira debajo de dichos elementos
+	flotantes */
+	text-align:center;
+}

@@ -3,6 +3,14 @@
 	include $root.'/bestnid/phpQuerys/querys.php'; //este archivo principal_funciones se ejecuta desde distintos archivos (distintos path)... 
 	//por eso es necesario trabajar con el path absoluto, porque el relativo va a cambiar segun desde donde se haga el include.	
 	
+	function fechaActual(){
+		$dia = date("d");
+		$mes = date("m");
+		$año = date("Y");
+		$strResult = $año."-".$mes."-".$dia; 
+		return $strResult;
+	} 
+	
 	function eliminarCaracteresBlancos($str){
 		$str = str_replace(' ', '', $str);
 		return $str;
@@ -14,7 +22,7 @@
 		return $arregloDeStrings;
 	}
 	
-	function bddObtenerArticulos($columnas, $criterioDeBusqueda, $discriminante, $criterioDeOrden, $patronOExacto){ 
+	function bddObtener($columnas, $tabla, $criterioDeBusqueda, $discriminante, $criterioDeOrden, $patronOExacto, $condWhereAdicionales){ 
 	//$patronOExacto tiene 2 valores posibles, "exacto" o "patron"...
 	//si es exacto entonces la consulta se hara con el operador "="  es decir WHERE(criterioDeBusqueda = "discriminante")...
 	//y si es patron entonces la consulta se hara con el operador "LIKE" es decir WHERE(criterioDeBusqueda LIKE "%discriminante%")
@@ -24,19 +32,19 @@
 	//strings vacios "" todos los parametros que correspondan.
 	
 		if($criterioDeBusqueda == ""){
-			$resultQuery = querySubastasTodas($columnas);
+			$resultQuery = queryTodas($columnas, $tabla, $condWhereAdicionales);
 		} else {
 			if($criterioDeOrden == ""){
 				if($patronOExacto == "exacto"){
-					$resultQuery = querySubastasConBusquedaExacta($columnas, $criterioDeBusqueda, $discriminante);
+					$resultQuery = queryConBusquedaExacta($columnas, $tabla, $criterioDeBusqueda, $discriminante, $condWhereAdicionales);
 				} else {
-					$resultQuery = querySubastasConBusquedaLike($columnas, $criterioDeBusqueda, $discriminante);
+					$resultQuery = queryConBusquedaLike($columnas, $tabla, $criterioDeBusqueda, $discriminante, $condWhereAdicionales);
 				} 
 			} else {
 				if($patronOExacto == "exacto"){
-					$resultQuery = querySubastasConBusquedaExactaConOrden($columnas, $criterioDeBusqueda, $discriminante, $criterioDeOrden);
+					$resultQuery = queryConBusquedaExactaConOrden($columnas, $tabla, $criterioDeBusqueda, $discriminante, $criterioDeOrden, $condWhereAdicionales);
 				} else {
-					$resultQuery = querySubastasConBusquedaLikeConOrden($columnas, $criterioDeBusqueda, $discriminante, $criterioDeOrden);
+					$resultQuery = queryConBusquedaLikeConOrden($columnas, $tabla, $criterioDeBusqueda, $discriminante, $criterioDeOrden, $condWhereAdicionales);
 				}
 			}
 		}
@@ -61,21 +69,7 @@
 		return $articulos;
 	}
 	
-	function bddObtenerCategorias(){
-		$resultQuery = queryCategoriasTodas();
-		
-		$cantFilas = mysqli_num_rows($resultQuery);
-		$categorias = array();
-		
-		if($cantFilas > 0){
-			while($row = mysqli_fetch_assoc($resultQuery)){
-				$categorias[] = $row["nombre"];
-			}
-		}
-		return $categorias;
-	}
-	
-	function bddEliminarSubasta($idSubasta){
+	function bddEliminar($tabla, $criterioDeBusqueda, $discriminante){ //FALTA TOQUETEAR ( LO HACE ULISES)
 		$resultQuery = queryEliminarTuplas("Subasta","idSubasta",$idSubasta);
 	/*	try{
 			$resultQuery = queryEliminarTuplas("Subasta","idSubasta",$idSubasta);

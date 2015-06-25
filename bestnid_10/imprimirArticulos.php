@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="estilos/imprimirArticulos.css">
 <?php 
 //Este archivo imprime en html los articulos para la pagina principal. REQUIERE HABER INICIALIZADO LA VARIABLE $arts AFUERA.
 

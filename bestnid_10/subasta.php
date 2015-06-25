@@ -2,13 +2,12 @@
 include '/phpFunciones/principal_funciones.php'; 
 
 $idSubasta = $_GET['idSubasta'];
-$subasta = bddObtenerArticulos("idSubasta, fechaVencimiento, titulo, descripcion, idUsuario, categoria, idImagenPrincipal", "idSubasta", $idSubasta, "", "exacto");
-//function bddObtenerArticulos($columnas, $criterioDeBusqueda, $discriminante, $criterioDeOrden, $patronOExacto)
+$subasta = bddObtener("idSubasta, fechaVencimiento, titulo, descripcion, idUsuario, categoria, idImagenPrincipal", "Subasta", "idSubasta", $idSubasta, "", "exacto", "");
+//function bddObtener($columnas, $tabla, $criterioDeBusqueda, $discriminante, $criterioDeOrden, $patronOExacto, $condWhereAdicionales)
 //la documentacion de los parametros de la funcion invocada bddObtenerArticulos esta dentro de la implementacion de la funcion. 
-
 ?>
-<html>
 
+<html>
 <head>
 	<title> <?php echo $subasta['titulo'][0]; ?> </title> <!-- [0] porque las columnas tienen una unica tupla (obviamente ya que la busqueda fue por ID) -->
 	<link rel="stylesheet" href="estilos/subasta.css">
@@ -16,14 +15,12 @@ $subasta = bddObtenerArticulos("idSubasta, fechaVencimiento, titulo, descripcion
 	<script type="text/javascript" src="scripts/subasta.js"></script> 
 </head>
 	
-<header>
-<?php 
-include 'principal_header.php';
-?>
-</header>
-
-
 <body>
+	<header>
+		<?php 
+		include 'principal_header.php';
+		?>
+	</header>
 	<section class="main">
 		<section class="articles">
 			<div class="titulo">
@@ -112,21 +109,27 @@ include 'principal_header.php';
 			</div>
 		</section>
 	</section>
+	<?php include 'footer.php'; ?>
+	
+	<!-- VENTANA MODAL -->
+	<?php include 'ventanaModal.php'; ?>
+	
 </body>
 </html>
 
 <?php 
 if (isset($_SESSION['ingreso'])) { ?>
+	<?php echo ($_SESSION['id'] == $subasta['idUsuario'][0]); ?>
 	<script>
 	<?php
 	if($_SESSION['id'] == $subasta['idUsuario'][0]){ //Si el usuario es el dueño de la subasta..
-		echo "$('#botonElimSubasta').show()"; //sentencia de javascript
-		echo "$('#botonModifSubasta').show()";
+		echo "$('#botonElimSubasta').show();"; //sentencia de javascript
+		echo "$('#botonModifSubasta').show();";
 	} else { //si no es el dueño de la subasta..
-		echo "$('#botonOfertarSubasta').show()";
+		echo "$('#botonOfertarSubasta').show();";
 		/*
 		if($_SESSION['tipoDeUsuario'] == admin blabla consultar a la tabla usuario){
-			echo "$('#botonElimSubasta').show()";
+			echo "$('#botonElimSubasta').show();";
 		}
 		*/
 	} ?>

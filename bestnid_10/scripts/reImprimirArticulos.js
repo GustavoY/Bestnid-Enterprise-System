@@ -1,26 +1,25 @@
 const rutaScriptPhp = "scripts/scriptsPhp/reImprimirArticulos.php";
 
-
-function reImprimirArticulos(criterioDeBusqueda, discriminante, criterioDeOrden, idElementoHtml){
+function reImprimirArticulos(columnas, tabla, criterioDeBusqueda, discriminante, criterioDeOrden, patronOExacto, condWhereAdicionales, idElementoHtml){
 	var patronOExacto;
 	
 	if(criterioDeBusqueda == "titulo"){ //ya que si se busca por titulo no se le pasa nada al parametro 
 										//discriminante porque el discriminante en si esta todavia en el input del form.
 		discriminante = document.getElementById("inputSearch").value;
-		patronOExacto = "patron";
-	} else {
-		patronOExacto = "exacto";
 	}
-	
 	var checkBoxElem = document.getElementById("checkboxOrden");
+	
 	if(checkBoxElem.checked){
 		criterioDeOrden = "titulo";
 	} else {
 		criterioDeOrden = "";
 	}
-	
+	reImprimir(columnas, tabla, criterioDeBusqueda, discriminante, criterioDeOrden, patronOExacto, condWhereAdicionales, idElementoHtml, "imprimirArticulos.php");
+}
+
+function reImprimir(columnas, tabla, criterioDeBusqueda, discriminante, criterioDeOrden, patronOExacto, condWhereAdicionales, idElementoHtml, pathPhpConsumidor){
+	//NO MODIFICAR, ES CRITICO.
 	var conexion;
-//	alert("esto se ejecuta");
 	
 	if(window.XMLHttpRequest){
 		conexion = new XMLHttpRequest();
@@ -33,7 +32,7 @@ function reImprimirArticulos(criterioDeBusqueda, discriminante, criterioDeOrden,
 			document.getElementById(idElementoHtml).innerHTML = conexion.responseText;
 		}
 	}
-	
-	conexion.open("GET",rutaScriptPhp+"?critBusq="+criterioDeBusqueda+"&discrim="+discriminante+"&critOrd="+criterioDeOrden+"&patrOExact="+patronOExacto, true); //el ultimo true es para seleccionar el modo asincronico de ajax
+	conexion.open("GET",rutaScriptPhp+"?columnas="+columnas+"&tabla="+tabla+"&critBusq="+criterioDeBusqueda+"&discrim="+discriminante+"&critOrd="+criterioDeOrden+"&patrOExact="+patronOExacto+"&condWhereAd="+condWhereAdicionales+"&pathConsumidor="+pathPhpConsumidor, true);
+	//el ultimo true es para seleccionar el modo asincronico de ajax
 	conexion.send();
 }

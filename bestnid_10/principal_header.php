@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="estilos/principal_header.css">
-<!--	<script src="scripts/librerias/jquery-1.11.3.min.js"></script> <!-- lIBRERIA NECESARIA´PARA EJECUTAR JQUERY -->
-<!--	<script src="scripts/principal.js"></script>  <!--ESTA LIBRERIA ESTA ACA XQ LA VENTANA MODAL Y EL HEADER COMPARTEN METODOS CAPAS DEBERIA AVER ESTADO LA LOGICA DE LA VENTANA AKA  -->
+<script type="text/javascript" src="scripts/principal_header.js"></script>
 <div class="nivel1">
 	<div class="logo"><img src="logo.png"></div>
 	<div class="tituloDePagina"><p>Bestnid</p></div>
@@ -43,6 +42,8 @@
 		</ul>
 	</section>
 </div>	
+
+
 <?php 
 session_start();
 if (isset($_SESSION['ingreso'])) {
