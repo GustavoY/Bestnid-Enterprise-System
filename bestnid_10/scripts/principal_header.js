@@ -23,7 +23,7 @@ function iniciarSesion(){
 				$('#login').hide();
 				$('#on').show();
 				$('#registrarse').hide(); */
-				cerrarVentanaModal('ventanaContenedor','contenidoVentanaLogin','modal');
+				cerrarVentanaModal();
 				location.reload(true);
 			}
 		});

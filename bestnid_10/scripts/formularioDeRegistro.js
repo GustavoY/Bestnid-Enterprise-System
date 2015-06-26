@@ -267,7 +267,7 @@ function comprobarReinsercionDeContrasenia(inputName, msjErrorName, indiceContra
 						}
 						else{
 							alert("Se registro exitosamente");
-							window.location.href='principalOficial.php';
+							window.location.href='principal.php';
 						}
 					}
 				});
