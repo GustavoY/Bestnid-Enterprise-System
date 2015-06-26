@@ -12,11 +12,14 @@ $subasta = bddObtener("idSubasta, fechaVencimiento, titulo, descripcion, idUsuar
 	<title> <?php echo $subasta['titulo'][0]; ?> </title> <!-- [0] porque las columnas tienen una unica tupla (obviamente ya que la busqueda fue por ID) -->
 	<link rel="stylesheet" href="estilos/subasta.css">
 	<script type="text/javascript" src="scripts/librerias/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="scripts/subasta.js"></script> 
 </head>
-
+	
 <body>
 	<header>
-		<?php include 'principal_header.php'; ?>
+		<?php 
+		include 'principal_header.php';
+		?>
 	</header>
 	<section class="main">
 		<section class="articles">
@@ -61,14 +64,7 @@ $subasta = bddObtener("idSubasta, fechaVencimiento, titulo, descripcion, idUsuar
 						</div>
 						
 						<div class="contenedorElimSub">
-						
-						<!-- function insertarContenidoEnVentanaModal(pathContenidoVentanaModal){ en el path se pueden pasar parametros GET -->
-							<?php 
-							//Se inicializan 2 variables para pasarlas por parametro GET, cosa que no quede tan largo y horrible en una sola linea.				
-							$mensaje = "¿Seguro desea eliminar esta subasta?";
-							$hrefBotonConfirmarVentanaModal = "resultadoDeEliminacion.php?idSubasta=".$idSubasta;
-							?>
-							<a class="botonElimSub"  id="botonElimSubasta" onclick="insertarContenidoEnVentanaModal('ventanaConfirmacion.php?mensaje=<?php echo $mensaje; ?>&href=<?php echo $hrefBotonConfirmarVentanaModal; ?>')" > Eliminar esta subasta </a>
+							<a class="botonElimSub" href="resultadoDeEliminacion.php?idSubasta=<?php echo $idSubasta; ?>" id="botonElimSubasta" style="display:none;"> Eliminar esta subasta </a>
 						</div>
 						
 						<div class="contenedorOfertar">
@@ -114,10 +110,11 @@ $subasta = bddObtener("idSubasta, fechaVencimiento, titulo, descripcion, idUsuar
 		</section>
 	</section>
 	<?php include 'footer.php'; ?>
+	
+	<!-- VENTANA MODAL -->
+	<?php include 'ventanaModal.php'; ?>
+	
 </body>
-
-<?php include 'ventanaModal.php'; ?>
-
 </html>
 
 <?php 

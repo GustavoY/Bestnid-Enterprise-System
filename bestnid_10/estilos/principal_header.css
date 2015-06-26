@@ -15,7 +15,7 @@ header, .main, footer {
 }
 
 .nivel1 {
-	height:35px;
+	height:35px/**//**/;
 	display:block;
 	clear:right;
 	margin-bottom:5px;

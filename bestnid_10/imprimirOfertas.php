@@ -13,13 +13,10 @@ if( $arts != null ){
 					<div class="titulo">
 						<p> <?php echo($arts["titulo"][$fila]) ?> </p> <!-- imprime el titulo del articulo i (indice $fila) -->
 					</div>
-					<div class="necesidad">
-						<p><?php echo($arts["necesidad"][$fila]) ?> </p>
-					</div>
 					<div class="monto">
-						<p><?php echo($arts["monto"][$fila]) ?> </p>
+						<p><?php echo("Monto: ".$arts["monto"][$fila]) ?> </p>
 					</div><div class="fechaOferta">
-						<p><?php echo($arts["fechaOferta"][$fila]) ?> </p>
+						<p><?php echo("Fecha de oferta: ".$arts["fechaOferta"][$fila]) ?> </p>
 					</div>
 				</div>
 			</a>	

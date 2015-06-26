@@ -89,14 +89,12 @@
 	//el parametro criterioDeBusqueda sera un str vacio "" y los demas parametros por logica no tendran ningun sentido, por lo que ni siquiera se los lee... 
 	//pero por seguridad y prolijidad SE DEBE invocar esta funcion bddObtenerArticulos con todos los parametros definidos, con...
 	//strings vacios "" todos los parametros que correspondan.
-	$columnas=$columna1 + $columna2;
-	$columna1= explode(" ",$columna1);
+	$columnas=$columna1 . " ". $columna2;
+	$columna1= explode(" ",$columna1);// se separan las columnas en cada posicion de un arreglo
 	$columna2= explode(" ",$columna2);
 	$resultQuery = queryTodasOfertas($columna1, $columna2, $tabla1, $tabla2, $condWhereAdicionales);
-	
 	$cantFilas = mysqli_num_rows($resultQuery);
-	
-	$arregloDeNombresDeColumnas = crearArreglosDeStr($columnas);	
+	$arregloDeNombresDeColumnas = explode(' ',$columnas);
 	$cantColumnas = count($arregloDeNombresDeColumnas);
 
 	if ($cantFilas > 0) {

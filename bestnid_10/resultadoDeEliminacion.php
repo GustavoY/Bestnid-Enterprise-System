@@ -13,11 +13,7 @@
 
 <body>
 	<header>
-		<div class="nivel1">
-			<div class="logo"><img src="logo.png"></div>
-			<div class="tituloDePagina"><p>Bestnid</p></div>
-			<div class="slogan"><p>Se elige con el coraz&oacute;n</p></div>
-		</div>	
+		<?php // include principal_header_lvl1 ?>
 	</header>
 
 	<section class="main">

@@ -24,7 +24,7 @@
 				<div class= "botones">
 					<li><input type="button" value="Mis Subastas" onclick="reImprimir('titulo , idImagenPrincipal, idSubasta', 'Subasta', '', '', '', '', '<?php echo "AND idUsuario = ".$_SESSION['id'] ?>', 'tabla', 'imprimirArticulos.php')"></li>
 					<!-- function reImprimir(columnas, tabla, criterioDeBusqueda, discriminante, criterioDeOrden, patronOExacto, condWhereAdicionales, idElementoHtml, pathPhpConsumidor) -->
-					<li><input type="button" value="Mis Ofertas" onclick="imprimirOfertas('necesidad monto fechaOferta', 'titulo idImagenPrincipal', 'Oferta', 'Subasta', '<?php echo" AND Oferta.idUsuario = ".$_SESSION['id'] ?>', 'tabla','imprimirOfertas.php')" ></li>
+					<li><input type="button" value="Mis Ofertas" onclick="imprimirOfertas('necesidad monto fechaOferta', 'titulo idImagenPrincipal idSubasta', 'Oferta', 'subasta', '<?php echo" AND Oferta.idUsuario = ".$_SESSION['id'] ?>', 'tabla','imprimirOfertas.php')" ></li>
 					<li><input type="button" value="Cantidad De Ventas" ></li>
 					<li><input type="button" value="Modificar Oferta" ></li>
 
@@ -34,8 +34,7 @@
 		
 		<section class="articles">
 			<div id="tabla" class="tabla">
-							
-		
+			<!--AKA SE IMPRIMEN LAS CONSULTAS  -->
 			</div>
 		</section>
 	</section>

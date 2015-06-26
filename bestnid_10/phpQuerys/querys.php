@@ -74,10 +74,11 @@
 	/////////////ofertas//////////////
 
 	function queryTodasOfertas($columna1, $columna2, $tabla1, $tabla2, $condWhereAdicionales){
-		$query = "	SELECT ".$tabla1.".".$columna1[0].", ".$tabla1.".".$columna1[1].", " .$tabla1.".".$columna1[2].", ".$tabla2.".".$columna2[0].", ".$tabla2.".".$columna1[1]. "
-					FROM ".$tabla1." 
-					INNER JOIN ".$tabla2."  ON ".$tabla1." .idSubasta = ".$tabla2.".idSubasta
-					WHERE (valida = 1) AND ".$tabla1.".idSubasta = ".$tabla2.".idSubasta ".$condWhereAdicionales; 
+		// echo"$tabla1.$columna1[0] , $tabla1.$columna1[1]";
+		$query = "	SELECT $tabla1.$columna1[0], $tabla1.$columna1[1], $tabla1.$columna1[2], $tabla2.$columna2[0], $tabla2.$columna2[1], $tabla2.$columna2[2], $tabla1.idUsuario, $tabla2.idUsuario
+					FROM $tabla1
+					INNER JOIN $tabla2  ON $tabla1.idSubasta = $tabla2.idSubasta
+					WHERE ($tabla1.valida = 1 AND $tabla2.valida = 1) AND $tabla1.idSubasta = $tabla2.idSubasta $condWhereAdicionales"; 					
 		$result = mysqli_query($GLOBALS['connection'], $query);
 		return $result;
 	}
@@ -85,4 +86,5 @@
 	// from	oferta o
 	// INNER jOIN subasta s ON(o.idSubasta = s.idSubasta)
 	// where	o.idUsuario = idusuario(del que inicio secion) 	AND valida=1 And o.idSubasta = s.idSubasta
+
 ?>

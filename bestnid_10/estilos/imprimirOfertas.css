@@ -45,6 +45,7 @@ sigue estrictamente una sola linea saliendose de los contenedores*/
 	height:126px;
 	width:126px;
     position: relative;
+    float:left;
 }
 	
 .main .articles article img {	
@@ -56,4 +57,5 @@ sigue estrictamente una sola linea saliendose de los contenedores*/
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
+   
 }

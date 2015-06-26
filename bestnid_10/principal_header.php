@@ -3,8 +3,7 @@ session_start();
 ?>	
 
 <link rel="stylesheet" href="estilos/principal_header.css">
-<script type="text/javascript" src="scripts/principal_header.js"></script> 
-
+<script type="text/javascript" src="scripts/principal_header.js"></script>
 <div class="nivel1">
 	<div class="logo"><img src="logo.png"></div>
 	<div class="tituloDePagina"><p>Bestnid</p></div>
@@ -40,20 +39,8 @@ session_start();
 				</li>
 			<?php } else{ ?>
 			<li>
-<<<<<<< HEAD
 				<div id="on" >
 					<a href="miCuenta.php">  <?php	echo($_SESSION['nombre']); ?>  </a>
-=======
-				<div id="login" style="display:block;">
-					<a href="#" onclick="insertarContenidoEnVentanaModal('ventanaIniciarSesion.php')"> <!-- "abrirVentanaModal('modal','ventanaContenedor')" -->
-						 <label>Ingresar</label>
-					</a> 
-				</div>
-			</li>
-			<li>
-				<div id="on" style="display:none;">
-					<a href="miCuenta.php"> Mi Cuenta </a>
->>>>>>> origin/master
 				</div>
 			</li>
 			<li>
