@@ -11,14 +11,6 @@
 	if (!$connection) {
 		die("Connection failed: " . mysqli_connect_error());
 	}
-
-	function fechaActual(){
-		$dia = date("d");
-		$mes = date("m");
-		$año = date("Y");
-		$strResult = $año."-".$mes."-".$dia; 
-		return $strResult;
-	} 
 	 
 	//---------------------------------------------------------------------------------------------------------------------------------------
 	//---------------------------------------------------------------------------------------------------------------------------------------
@@ -26,78 +18,73 @@
 	//---------------------------------------------------------------------------------------------------------------------------------------
 	//---------------------------------------------------------------------------------------------------------------------------------------
 	
-	//---------------------------------------------------------------------------------------------------------------------------------------
-	//--------------------------------------------------Subastas-----------------------------------------------------------------------------
-	//---------------------------------------------------------------------------------------------------------------------------------------
-	function querySubastasTodas($columnas){
+	function queryTodas($columnas, $tabla, $condWhereAdicionales){
 		$fechaActual = fechaActual();
 		$query = "	SELECT ".$columnas."
-					FROM Subasta
-					WHERE (subastaValida = 1) AND (fechaVencimiento > \"".fechaActual()."\")"; // 
+					FROM ".$tabla."
+					WHERE (valida = 1) ".$condWhereAdicionales; 
 		$result = mysqli_query($GLOBALS['connection'], $query);
 		return $result;
 	}
 	 
 	 
-	function querySubastasConBusquedaExacta($columnas, $criterioDeBusqueda, $discriminante){
+	function queryConBusquedaExacta($columnas, $tabla, $criterioDeBusqueda, $discriminante, $condWhereAdicionales){
 		$query = "	SELECT ".$columnas."
-					FROM Subasta
-					WHERE (".$criterioDeBusqueda." = \"".$discriminante."\") AND (fechaVencimiento > \"".fechaActual()."\") AND (subastaValida = 1)";
+					FROM ".$tabla."
+					WHERE (".$criterioDeBusqueda." = \"".$discriminante."\")".$condWhereAdicionales." AND (valida = 1)";
 		$result = mysqli_query($GLOBALS['connection'], $query);
 		return $result;
 	}
 	
-	
-	function querySubastasConBusquedaLike($columnas, $criterioDeBusqueda, $discriminante){
+	function queryConBusquedaLike($columnas, $tabla, $criterioDeBusqueda, $discriminante, $condWhereAdicionales){
 		$query = "	SELECT ".$columnas."
-					FROM Subasta
-					WHERE (".$criterioDeBusqueda." LIKE \"%".$discriminante."%\") AND (fechaVencimiento > \"".fechaActual()."\") AND (subastaValida = 1)";
+					FROM ".$tabla."
+					WHERE (".$criterioDeBusqueda." LIKE \"%".$discriminante."%\")".$condWhereAdicionales." AND (valida = 1)";
 		$result = mysqli_query($GLOBALS['connection'], $query);
 		return $result;
 	}
 
 	
-	function querySubastasConBusquedaExactaConOrden($columnas, $criterioDeBusqueda, $discriminante, $criterioDeOrden){
+	function queryConBusquedaExactaConOrden($columnas, $tabla, $criterioDeBusqueda, $discriminante, $criterioDeOrden, $condWhereAdicionales){
 		$query = "	SELECT ".$columnas."
-					FROM Subasta
-					WHERE (".$criterioDeBusqueda." = \"".$discriminante."\") AND (fechaVencimiento > \"".fechaActual()."\") AND (subastaValida = 1)
+					FROM ".$tabla."
+					WHERE (".$criterioDeBusqueda." = \"".$discriminante."\") ".$condWhereAdicionales." AND (valida = 1)
 					ORDER BY ".$criterioDeOrden;
 		$result = mysqli_query($GLOBALS['connection'], $query);
 		return $result;
 	}
 	
 	
-	function querySubastasConBusquedaLikeConOrden($columnas, $criterioDeBusqueda, $discriminante, $criterioDeOrden){
+	function queryConBusquedaLikeConOrden($columnas, $tabla, $criterioDeBusqueda, $discriminante, $criterioDeOrden, $condWhereAdicionales){
 		$query = "	SELECT ".$columnas."
-					FROM Subasta
-					WHERE (".$criterioDeBusqueda." LIKE \"%".$discriminante."%\") AND (fechaVencimiento > \"".fechaActual()."\") AND (subastaValida = 1)
+					FROM ".$tabla."
+					WHERE (".$criterioDeBusqueda." LIKE \"%".$discriminante."%\") ".$condWhereAdicionales." AND (valida = 1)
 					ORDER BY ".$criterioDeOrden;
 		$result = mysqli_query($GLOBALS['connection'], $query);
 		return $result;
 	}
 	
-	
-	//---------------------------------------------------------------------------------------------------------------------------------------
-	//------------------------------------------------Categorias-----------------------------------------------------------------------------
-	//---------------------------------------------------------------------------------------------------------------------------------------
-	function queryCategoriasTodas(){
-		$query = "	SELECT nombre
-					FROM Categoria
-					WHERE valida = 1
-					ORDER BY nombre";
+	function queryEliminarTuplas($tabla, $criterioDeBusqueda, $discriminante){
+		$query= "	UPDATE ".$tabla."
+					SET valida = 0
+					WHERE ".$criterioDeBusqueda." = ".$discriminante;
+		$result = mysqli_query($GLOBALS['connection'], $query); //retorna false si hay error (creo jaja)
+	}       
+
+	/////////////ofertas//////////////
+
+	function queryTodasOfertas($columna1, $columna2, $tabla1, $tabla2, $condWhereAdicionales){
+		// echo"$tabla1.$columna1[0] , $tabla1.$columna1[1]";
+		$query = "	SELECT $tabla1.$columna1[0], $tabla1.$columna1[1], $tabla1.$columna1[2], $tabla2.$columna2[0], $tabla2.$columna2[1], $tabla2.$columna2[2], $tabla1.idUsuario, $tabla2.idUsuario
+					FROM $tabla1
+					INNER JOIN $tabla2  ON $tabla1.idSubasta = $tabla2.idSubasta
+					WHERE ($tabla1.valida = 1 AND $tabla2.valida = 1) AND $tabla1.idSubasta = $tabla2.idSubasta $condWhereAdicionales"; 					
 		$result = mysqli_query($GLOBALS['connection'], $query);
 		return $result;
 	}
-	
-	
-	//---------------------------------------------------------------------------------------------------------------------------------------
-	//------------------------------------------------Usuarios-------------------------------------------------------------------------------
-	//---------------------------------------------------------------------------------------------------------------------------------------
-		function  queryUsuarioEmailEmail($email){
-		$query="SELECT `email`
-			FROM `bestnid`.`usuario`
-			WHERE email = '$email'";
-		$result = mysqli_query($GLOBALS['connection'],$query);
-		return $result;
-	}
+	// select Necesidad ,Monto, fechaDeOferta, titulo, img
+	// from	oferta o
+	// INNER jOIN subasta s ON(o.idSubasta = s.idSubasta)
+	// where	o.idUsuario = idusuario(del que inicio secion) 	AND valida=1 And o.idSubasta = s.idSubasta
+
 ?>

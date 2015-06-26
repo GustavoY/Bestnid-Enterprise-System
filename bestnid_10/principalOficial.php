@@ -1,41 +1,51 @@
-<?php
-include '/phpFunciones/principal_funciones.php';
-include '/principal_header.php';
-?>
-<!DOCTYPE html>
+<?php include '/phpFunciones/principal_funciones.php'; ?>
+
 <html>
 <head>
 	<title> Subastas </title>
 	<link rel="stylesheet" href="estilos/principal.css"> 
-	<script src="scripts/librerias/jquery-1.11.3.min.js"></script>
-	<script src="scripts/reImprimirArticulos.js"></script>
-	<script src="scripts/principal.js"></script>
-	<script type="text/javascript" src="scripts/principalVentanaModal.js"></script>
-	
+	<script type="text/javascript" src="scripts/librerias/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="scripts/reImprimirArticulos.js"></script>
 </head>
 
 <body>
+	<header>
+	<?php 
+		include '/principal_header.php'; // tiene que estar en esta parte 
+		//xq se tiene que ejecutar el javascript del principal el metodo iniciarsecion()
+	 ?> 
+	</header>
 	<section class="main">
 		<aside>
 			<div class="filtroDeBusqueda">
 				<div class="inputsTexto">
 					<input type="search" placeholder="Nombre de producto" id="inputSearch" name="busqueda">
-					<button id="searchSubmit" onclick="reImprimirArticulos('titulo','','','articles');"> Buscar </button>
+					<button id="searchSubmit" onclick="reImprimirArticulos('titulo, idImagenPrincipal, idSubasta','Subasta','titulo','','','patron','<?php echo "AND (fechaVencimiento > &quot;".fechaActual()."&quot;)"; ?>','articles')"> Buscar </button>
 				</div>
+				
+				<div class="selectorOrden">
+					<input type="checkbox" id="checkboxOrden">
+					<p>Ordenar resultado</p>
+				</div>
+				
 				<div class="categorias" id="categorias">
 					<ul>
-						<?php $categorias = bddObtenerCategorias();
-						for($fila=0; $fila < count($categorias); $fila++){
+						<?php $categorias = bddObtener('nombre', "Categoria", "", "", "", "", "");
+						//AND (fechaVencimiento > \"".fechaActual()."\")"
+						//function bddObtener($columnas, $tabla, $criterioDeBusqueda, $discriminante, $criterioDeOrden, $patronOExacto, $condWhereAdicionales){ 
+						for($fila=0; $fila < count($categorias['nombre']); $fila++){
 						?>
-						<li onclick="reImprimirArticulos('categoria','<?php echo $categorias[$fila] ?>','','articles');"> <?php echo $categorias[$fila] ?> </li>
-						<!--function reImprimirArticulos(criterioDeBusqueda, discriminante, criterioDeOrden, idElementoHtml){-->
+						<li onclick="reImprimirArticulos('titulo, idImagenPrincipal, idSubasta','Subasta','categoria','<?php echo $categorias['nombre'][$fila]; ?>','','exacto','<?php echo "AND (fechaVencimiento > &quot;".fechaActual()."&quot;)"; ?>','articles')"> <?php echo $categorias['nombre'][$fila] ?> </li>
+						<!--function reImprimirArticulos(columnas, tabla, criterioDeBusqueda, discriminante, criterioDeOrden, patronOExacto, condWhereAdicionales, idElementoHtml)-->
 						<?php
 						}
 						?>
 					</ul>
 				</div>	
 				
-		<!--	<div class="radios">
+	<!--			<button id="botonOrdenar" onclick="reImprimirArticulos('titulo',)"
+				
+			<div class="radios">
 					<div class="radiosTitulo"><p>Rango de precios:</p></div>
 					<div class="rango"> <input type="radio" name="rangoX" value="a"> <p>1$ - 50$</p> </div>
 					<div class="rango"> <input type="radio" name="rangoX" value="b"> <p>50$ - 250$</p> </div>
@@ -45,36 +55,19 @@ include '/principal_header.php';
 			</div>
 		</aside>
 		
-		<section class="articles" id="articles">
-			<?php 
-			$arts = bddObtenerArticulos("titulo, idImagenPrincipal", "", "", "","");
-			//function bddObtenerArticulos($columnas, $criterioDeBusqueda, $discriminante, $criterioDeOrden, $patronOExacto)
+		<section class="articles" id="articles"> <?php
+			$arts = bddObtener("titulo, idImagenPrincipal, idSubasta", "Subasta", "", "", "", "", "AND (fechaVencimiento > \"".fechaActual()."\")"); 
+			//function bddObtenerArticulos($columnas, $tabla, $criterioDeBusqueda, $discriminante, $criterioDeOrden, $patronOExacto)
 			//la documentacion de los parametros de la funcion invocada bddObtenerArticulos esta dentro de la implementacion de la funcion. 
-			
-			for($fila=0; $fila < count($arts["titulo"]); $fila++){ //preguntar por ["titulo"] o ["idImagenPrincipal"] es lo mismo, ya que ambas columnas tienen la misma cantidad de filas.. es una tabla..
-			?>					
-				<article>
-					<div class="contenedorImagen">
-						<img src="<?php echo("imagenesProductos/".$arts["idImagenPrincipal"][$fila].".jpg");?>">
-					</div>	
-					<div class="descripcion">
-						<div class="titulo">
-							<p> <?php echo($arts["titulo"][$fila]) ?> </p> <!-- imprime el titulo del articulo i (indice $fila) -->
-						</div>
-					</div>
-				</article>			
-			<?php
-			}
-			if(count($arts["titulo"]) == 0){
-				echo ("No se ha encontrado ningún producto");
-			}
-			?>	
+			//idSubasta se necesita para mandarlo por metodo GET a la pagina de detalle de subasta.
+			include "imprimirArticulos.php"; ?>
 		</section> 		
 	</section>
 	
-	<footer>
-		<p>	Keyboard Arts desarrollo web </p>	
-	</footer>
+	<?php include 'footer.php' ?>
+	
+	<!-- VENTANA MODAL -->
+	<?php include 'ventanaModal.php'; ?>
 	
 	<!-- ----------- Ventanas modales --------------- -->
 <!--	
@@ -107,53 +100,6 @@ include '/principal_header.php';
 			</div>	
 		</div>		
 	</div>	-->
-	
-	
-	<div id="modal" style="display:none" onclick="cerrarVentanaModal('ventanaContenedor','contenidoVentanaLogin','modal')">	
-	</div>
-
-	<div id="ventanaContenedor" class="ventanaContenedor" style="display:none">
-	
-		<a href="#close" title="Cerrar" onclick="cerrarVentanaModal('ventanaContenedor','contenidoVentanaLogin','modal')">X</a>
-		
-
-		<!-- Ventana de INICIAR SECION -->
-		<div id="contenidoVentanaLogin" class="contenidoVentanaLogin" style="display:none">
-		
-			<div class="tituloVentanaLogin">
-				 <p align=center>Ingresar a Mi cuenta</p>
-			</div>
-			<div class="alert" style="display:none;" id="error">
-                <p align=center>Usuario o Password no identificados</p><br>
-            </div>
-            <div class="alert" style="display:none;" id="error-empty">
-                <p align=center>Campos Incompletos</p><br>
-            </div>
-			<div class="contenedorLinea">
-				<div class="contenedorLabel"> 
-					<label for="email"> Cuenta: </label> 
-				</div>
-					<input type="text" placeholder="Ejemplo@hotmail.com" name="email" id="email" required><br>
-			</div>
-			<div class="contenedorLinea">
-				<div class="contenedorLabel">
-					<label for="password"> Contrase&ntilde;a: </label>
-				</div>
-					<input type="password" placeholder="Escriba su contrase&ntilde;a" name="contraseña" id="password">
-				
-				
-			</div>		
-			<div class="buttLoginContenedor">
-				<button onclick="iniciarSesion()" '>Ingresar</button>
-			</div>			
-			<div class="footerVentanaLogin">
-				<hr>
-				<p> &iquest;A&uacute;n no tienes una cuenta? </p> <a href="formularioDeRegistro.html"> Reg&iacute;strate </a>
-			</div>	
-		</div>		
-	</div>	
-	
-	
 	
 </body>
 </html>

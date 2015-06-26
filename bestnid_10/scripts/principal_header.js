@@ -19,12 +19,12 @@ function iniciarSesion(){
 			}
 			else
 			{   
-				$('#logout').show();
+	/*			$('#logout').show();
 				$('#login').hide();
 				$('#on').show();
-				$('#registrarse').hide();
-				cerrarVentanaModal('ventanaContenedor','contenidoVentanaLogin','modal')
-
+				$('#registrarse').hide(); */
+				cerrarVentanaModal('ventanaContenedor','contenidoVentanaLogin','modal');
+				location.reload(true);
 			}
 		});
 	}
@@ -36,6 +36,7 @@ function cerrar(){
 		type:'POST',
 		data:{boton:'cerrar'}
 	}).done(function(resp){
-		location.href = 'principal.php'
+		location.href = 'principalOficial.php'
 	});
+	location.reload(true);
 }

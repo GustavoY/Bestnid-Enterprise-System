@@ -3,29 +3,25 @@
 	include_once ('../../phpClases/Usuario.php');
 	$boton=$_POST['boton'];
 	
-	if ($boton=='cerrar') 
-	{
+	if ($boton=='cerrar'){
 		session_start();
 		session_destroy();	
 	}
-	else
-	{
+	else{
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 
 		$ins=new usuario();
 		$array=$ins->identificar($email,$password);
 
-		if ($array[0]==0)
-		{
+		if ($array[0]==0){
 			echo '0';
-		}
-		else
-		{
+		} else {
 			session_start();
 			$_SESSION['ingreso']='SI';
 			$_SESSION['nombre']=$array[2];
+			$_SESSION['id']=$array[0];
+			$_SESSION['tipoDeUsuario']=$array[7];
 		}
-
 	}
 ?>

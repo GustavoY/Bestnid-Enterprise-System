@@ -2,12 +2,10 @@
 	$root = $_SERVER['DOCUMENT_ROOT']; //deberia imprimir C:/xampp/htdocs  a no ser que se cambie la ruta del servidor
 	include $root.'/bestnid/phpFunciones/principal_funciones.php';
 	
-	$columnas = $_GET['columnas'];
-	$tabla = $_GET['tabla'];
-	$criterioDeBusqueda = $_GET['critBusq'];
-	$discriminante = $_GET['discrim'];
-	$criterioDeOrden = $_GET['critOrd'];
-	$patronOExacto = $_GET['patrOExact'];
+	$columna1 = $_GET['columna1'];
+	$columna2 = $_GET['columna2'];
+	$tabla1 = $_GET['tabla1'];
+	$tabla2 = $_GET['tabla2'];
 	$condWhereAdicionales = $_GET['condWhereAd'];
 	$pathConsumidor = $_GET['pathConsumidor'];
 	
@@ -20,11 +18,9 @@
 			condWhereAdicionales: ".$condWhereAdicionales."<br>
 			pathConsumidor: ".$pathConsumidor; */
  
-	$arts = bddObtener($columnas, $tabla, $criterioDeBusqueda, $discriminante, $criterioDeOrden, $patronOExacto, $condWhereAdicionales);
+	$arts = bddObtenerOfertas($columna1, $columna2, $tabla1, $tabla2, $condWhereAdicionales);
 	//function bddObtener($columnas, $tabla, $criterioDeBusqueda, $discriminante, $criterioDeOrden, $patronOExacto)
 	//la documentacion de los parametros de la funcion invocada bddObtenerArticulos esta dentro de la implementacion de la funcion. 
 	
 	include $root.'/bestnid/'.$pathConsumidor; //se llama al archivo que utiliza la variable $arts. Esto se hace para ser abstracto y asi servir para cualquier tipo de consulta.
-	?>	
-
-
+?>	

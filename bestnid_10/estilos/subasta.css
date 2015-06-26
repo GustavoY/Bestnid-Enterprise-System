@@ -1,0 +1,202 @@
+*{
+	font-family:arial;
+	margin:0;
+	padding:0;
+}
+
+body{
+	background:#e6e6e6;
+	min-width:800px;
+	max-width:1120px;
+}
+
+header, .main, footer {
+	width:95%;
+	margin:15px auto;
+}
+
+.main .articles {
+	width:100%;
+	margin-bottom:20px;
+	box-sizing:border-box;
+	padding:1%;
+	float:left;
+	background:#fff;
+}
+
+.main .articles .titulo {
+	height:120px;
+}
+
+.main .articles .titulo .categoria{
+	font-size:22px;
+}
+
+.main .articles .titulo .nombre{
+	position:relative;
+}
+.main .articles .titulo .nombre p{
+	position:absolute;
+	font-size:35px;
+	box-sizing:border-box;
+	
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -0%); /* -0% para que lo centre solo en ancho,
+y asi en el eje vertical se situa en el extremo inferior del contenedor de pos relativa.
+Esto es para que en caso de ser un titulo largo que no se solape con el indicador de categoria */
+}
+
+.main .articles .contenedorBloqueSuperiorDeInfoSubasta{
+	position:relative;
+	
+	height:420px;
+}
+
+.main .articles .bloqueSuperiorDeInfoSubasta{
+position:absolute;
+	box-sizing:border-box;
+	
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.main .articles .bloqueSuperiorDeInfoSubasta .presentacionDeImagenes{
+	border-style:solid;
+	border-width:1px;
+	border-color:#ccc;
+	float:left;
+	margin-right:20px;
+}
+
+.main .articles .bloqueSuperiorDeInfoSubasta .presentacionDeImagenes .contenedorImagen{
+	border-style:solid;
+	border-width:1px;
+	border-color:#EFEFEF;
+	box-sizing:border-box;
+	height:354px; /*para que no se superpongan los borders con la imagen se le suma 4px */
+	width:354px; 
+    position: relative;
+}
+
+.main .articles .bloqueSuperiorDeInfoSubasta .presentacionDeImagenes .contenedorImagen img{
+	max-height:350px;
+	max-width:350px; 
+	margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.main .articles .bloqueSuperiorDeInfoSubasta .presentacionDeImagenes  button{
+	float:left;
+	width:50px;
+	height:50px;
+	background:#bd0000;
+	border-style:none;
+	color:#fff;
+	font-size:30px;
+}
+
+.main .articles .bloqueSuperiorDeInfoSubasta .presentacionDeImagenes  button:hover{
+	cursor:pointer;
+	background:#ff4444;
+}
+
+.main .articles .bloqueSuperiorDeInfoSubasta .presentacionDeImagenes .indiceDeImagenes{
+	float:left;
+	margin-left:61px;
+	margin-right:62px;
+	margin-top:10px;
+	font-size:20px;
+}
+
+.main .articles .bloqueSuperiorDeInfoSubasta .contenedorInfoEstado{
+	border-style:solid;
+	border-width:1px;
+	border-color:#ccc;
+	width:350px;
+	height:400px;
+	margin-left:450px;
+	box-sizing:border-box;
+	padding:5px;
+}
+
+.main .articles .bloqueSuperiorDeInfoSubasta .contenedorInfoEstado .fechaVenc .encabezadoDeFecha{
+	font-size:20px;
+}
+
+.main .articles .bloqueSuperiorDeInfoSubasta .contenedorInfoEstado .fechaVenc .datoFecha{
+	margin-left:27px;
+	margin-top:5px;
+	margin-bottom:5px;
+	font-size:32px;
+}
+
+.main .articles .bloqueSuperiorDeInfoSubasta .contenedorInfoEstado .contenedorModifSub,
+.main .articles .bloqueSuperiorDeInfoSubasta .contenedorInfoEstado .contenedorElimSub,
+.main .articles .bloqueSuperiorDeInfoSubasta .contenedorInfoEstado .contenedorOfertar{
+	height:30px;
+}
+
+.main .articles .bloqueSuperiorDeInfoSubasta .contenedorInfoEstado .contenedorModifSub a,
+.main .articles .bloqueSuperiorDeInfoSubasta .contenedorInfoEstado .contenedorElimSub a,
+.main .articles .bloqueSuperiorDeInfoSubasta .contenedorInfoEstado .contenedorOfertar a{
+	padding:1px;
+	font-size:17px;
+	font-weight:bold;
+	background:#bd0000;
+	color:#fff;
+	border-style:none;
+	border-radius:3px;
+	text-decoration:none;
+}
+
+.main .articles .bloqueSuperiorDeInfoSubasta .contenedorInfoEstado .contenedorModifSub a:hover{
+	background:#ff4444;
+}
+
+.main .articles .bloqueSuperiorDeInfoSubasta .contenedorInfoEstado .contenedorElimSub a:hover{
+	background:#ff4444;
+}
+
+.main .articles .bloqueSuperiorDeInfoSubasta .contenedorInfoEstado .contenedorOfertar a:hover{
+	background:#ff4444;
+}
+
+.main .articles .bloqueInferiorDeInfoSubasta{
+	margin-top:20px;
+}
+
+.main .articles .bloqueInferiorDeInfoSubasta .tituloDescripcion{
+	margin-bottom:5px;
+	font-size:25px;
+}
+
+.main .articles .bloqueInferiorDeInfoSubasta .descripcion{
+	border-style:solid;
+	border-width:1px;
+	border-color:#ccc;
+	box-sizing:border-box;
+	padding:5px;
+	margin-bottom:35px;
+}
+
+.main .articles .bloqueInferiorDeInfoSubasta .tituloComentarios{
+	margin-bottom:5px;
+	font-size:25px;
+}
+
+.main .articles .bloqueInferiorDeInfoSubasta .contenedorComentarios{
+	border-style:solid;
+	border-width:1px;
+	border-color:#ccc;
+	box-sizing:border-box;
+	padding:5px;
+}
+
