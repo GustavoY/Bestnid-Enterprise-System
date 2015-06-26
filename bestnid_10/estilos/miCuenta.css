@@ -2,11 +2,7 @@ body aside{
 	border-radius: 5px;
 	background-color:#585858;
 	color: white;
-<<<<<<< HEAD
-    /*float: left;*/
-=======
     float: left;
->>>>>>> origin/ramaMiguel
     width:150px;
     height:100%;
 }
@@ -36,4 +32,18 @@ body ul .botones li input{
 
 body ul .botones li input:hover{
 	background: #868686;
+}
+
+.main .articles {
+	width:78.5%; /* 80% - 1.5% del margin-right del aside */
+	box-sizing:border-box; /*Esta propiedad indica que el ancho de la section (width) ya no toma mas en
+cuenta unicamente al ancho del CONTENIDO de la misma sino que ahora tambien toma en cuenta el padding 
+y el border (el margin no porque es externo), esto permite definir un width fijo (ej 30%) y al agregar 
+padding y border no va a afectar al width ya que "no se suma" al width sino que gracias a esta propiedad ahora
+es parte del mismo. De la otra forma habria que modificar el width al agregar un padding de 2%.. 2% de
+cada lado por lo tanto habria que restarle 4% al width para que retenga el mismo ancho.*/
+	margin-bottom:20px;
+	padding:1%;
+	float:left;
+	background:#fff;
 }

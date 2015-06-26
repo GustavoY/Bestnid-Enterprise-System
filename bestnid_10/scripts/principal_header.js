@@ -23,11 +23,7 @@ function iniciarSesion(){
 				$('#login').hide();
 				$('#on').show();
 				$('#registrarse').hide(); */
-<<<<<<< HEAD
 				cerrarVentanaModal();
-=======
-				cerrarVentanaModal('ventanaContenedor','contenidoVentanaLogin','modal');
->>>>>>> origin/ramaMiguel
 				location.reload(true);
 			}
 		});

@@ -69,13 +69,12 @@
 					SET valida = 0
 					WHERE ".$criterioDeBusqueda." = ".$discriminante;
 		$result = mysqli_query($GLOBALS['connection'], $query); //retorna false si hay error (creo jaja)
-<<<<<<< HEAD
 	}                                                           
 	
-=======
-	}       
-
-	/////////////ofertas//////////////
+	
+	//---------------------------------------------------------------------------------------------------------------------------------------
+	//--------------------------------------------------OFERTAS------------------------------------------------------------------------------
+	//---------------------------------------------------------------------------------------------------------------------------------------
 
 	function queryTodasOfertas($columna1, $columna2, $tabla1, $tabla2, $condWhereAdicionales){
 		// echo"$tabla1.$columna1[0] , $tabla1.$columna1[1]";
@@ -91,5 +90,4 @@
 	// INNER jOIN subasta s ON(o.idSubasta = s.idSubasta)
 	// where	o.idUsuario = idusuario(del que inicio secion) 	AND valida=1 And o.idSubasta = s.idSubasta
 
->>>>>>> origin/ramaMiguel
 ?>

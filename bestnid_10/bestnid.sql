@@ -3,11 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
-<<<<<<< HEAD
 -- Tiempo de generación: 26-06-2015 a las 00:48:13
-=======
--- Tiempo de generación: 25-06-2015 a las 03:56:15
->>>>>>> origin/ramaMiguel
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -74,7 +70,6 @@ CREATE TABLE IF NOT EXISTS `imagen` (
 --
 
 INSERT INTO `imagen` (`idImagen`, `idSubasta`, `valida`) VALUES
-<<<<<<< HEAD
 (1, 1, 1),
 (2, 1, 1),
 (3, 2, 1),
@@ -82,15 +77,6 @@ INSERT INTO `imagen` (`idImagen`, `idSubasta`, `valida`) VALUES
 (5, 3, 1),
 (6, 4, 1),
 (7, 6, 1);
-=======
-(1, 1, 0),
-(2, 1, 0),
-(3, 2, 0),
-(4, 2, 0),
-(5, 3, 0),
-(6, 4, 0),
-(7, 6, 0);
->>>>>>> origin/ramaMiguel
 
 -- --------------------------------------------------------
 
@@ -132,11 +118,7 @@ CREATE TABLE IF NOT EXISTS `subasta` (
 --
 
 INSERT INTO `subasta` (`idSubasta`, `fechaPublicacion`, `fechaVencimiento`, `titulo`, `descripcion`, `valida`, `idUsuario`, `categoria`, `idImagenPrincipal`) VALUES
-<<<<<<< HEAD
 (1, '2015-05-25', '2016-03-17', 'Placa de video EVGA GTX970 4GB SC ACX 2.0', 'Placa de video de ultima generacion.', 1, 1, 'Computadoras', 1),
-=======
-(1, '2015-05-25', '2015-06-26', 'Placa de video EVGA GTX970 4GB SC ACX 2.0', 'Placa de video de ultima generacion.', 1, 1, 'Computadoras', 1),
->>>>>>> origin/ramaMiguel
 (2, '2015-05-25', '2015-09-17', 'Memorias DDR3 Kingston 16gb 1600Mhz CL10 HyperX Beast DC kit.', 'Kit dual channel de memorias Kingston HyperX Beast 16GB (8x2) 1600Mhz CL10', 1, 1, 'Computadoras', 3),
 (3, '2015-05-26', '2015-08-26', 'Microprocesador Intel Core i5 4570', 'Intel Core i5 3.2Ghz (3.6 turbo boost) 6mb cache.', 1, 1, 'Computadoras', 5),
 (4, '2015-05-23', '2015-09-16', 'Zapatillas vans negras nro 43', 'Vans negras nro 43', 1, 1, 'Calzado', 6),
@@ -166,15 +148,9 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 --
 
 INSERT INTO `usuario` (`idUsuario`, `email`, `nombre`, `apellido`, `telFijo`, `telMovil`, `contrasenia`, `tipoDeUsuario`, `estado`, `valida`) VALUES
-<<<<<<< HEAD
 (1, 'ramonperez@hotmail.com', 'Ramon', 'Perez', '2147473647', '2147484647', 'passReDificil', 'usuario', 'activo', 1),
 (2, 'elsapato@gmail.com', 'Elsa', 'Pato', '2147483847', '2147482647', 'passMuyDificil', 'usuario', 'activo', 1),
 (3, 'asd@asd', 'asd', 'asd', '123', '123', '123123123', 'usuario', 'activo', 1);
-=======
-(1, 'ramonperez@hotmail.com', 'Ramon', 'Perez', '2147473647', '2147484647', 'passReDificil', 'usuario', 'activo', 0),
-(2, 'elsapato@gmail.com', 'Elsa', 'Pato', '2147483847', '2147482647', 'passMuyDificil', 'usuario', 'activo', 0),
-(3, 'asd@asd', 'asd', 'asd', '123', '123', '123123123', 'usuario', 'activo', 0);
->>>>>>> origin/ramaMiguel
 
 --
 -- Índices para tablas volcadas

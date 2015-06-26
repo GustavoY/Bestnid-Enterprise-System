@@ -5,11 +5,8 @@ $idSubasta = $_GET['idSubasta'];
 $subasta = bddObtener("idSubasta, fechaVencimiento, titulo, descripcion, idUsuario, categoria, idImagenPrincipal", "Subasta", "idSubasta", $idSubasta, "", "exacto", "");
 //function bddObtener($columnas, $tabla, $criterioDeBusqueda, $discriminante, $criterioDeOrden, $patronOExacto, $condWhereAdicionales)
 //la documentacion de los parametros de la funcion invocada bddObtenerArticulos esta dentro de la implementacion de la funcion. 
-<<<<<<< HEAD
 
 $imagenes = bddObtener("idImagen", "Imagen", " idSubasta", $idSubasta, "", "exacto", "");
-=======
->>>>>>> origin/ramaMiguel
 ?>
 
 <html>
@@ -17,23 +14,12 @@ $imagenes = bddObtener("idImagen", "Imagen", " idSubasta", $idSubasta, "", "exac
 	<title> <?php echo $subasta['titulo'][0]; ?> </title> <!-- [0] porque las columnas tienen una unica tupla (obviamente ya que la busqueda fue por ID) -->
 	<link rel="stylesheet" href="estilos/subasta.css">
 	<script type="text/javascript" src="scripts/librerias/jquery-1.11.3.min.js"></script>
-<<<<<<< HEAD
 	<script type="text/javascript" src="scripts/subasta.js"></script>
 </head>
 
 <body>
 	<header>
 		<?php include 'principal_header.php'; ?>
-=======
-	<script type="text/javascript" src="scripts/subasta.js"></script> 
-</head>
-	
-<body>
-	<header>
-		<?php 
-		include 'principal_header.php';
-		?>
->>>>>>> origin/ramaMiguel
 	</header>
 	<section class="main">
 		<section class="articles">
@@ -44,17 +30,12 @@ $imagenes = bddObtener("idImagen", "Imagen", " idSubasta", $idSubasta, "", "exac
 				</div>
 				<div class="nombre">
 					<p> <?php echo $subasta['titulo'][0]; ?></p>
-<<<<<<< HEAD
 				</div>
-=======
-				</div>	
->>>>>>> origin/ramaMiguel
 			</div>
 			
 			<div class="contenedorBloqueSuperiorDeInfoSubasta"> <!-- tiene posicion relativa -->
 				<div class="bloqueSuperiorDeInfoSubasta"> <!-- tiene posicion absoluta -->
 					<div class="presentacionDeImagenes">	
-<<<<<<< HEAD
 						<div class="contenedorImagen" id="imagenDeSubasta">
 
 							<img src="imagenesProductos/<?php echo $subasta['idImagenPrincipal'][0]; ?>.jpg">
@@ -74,19 +55,6 @@ $imagenes = bddObtener("idImagen", "Imagen", " idSubasta", $idSubasta, "", "exac
 							<span id="totalDeImagenes"> <?php echo count($imagenes['idImagen']);?> </span> 
 						</div>
 						<button class="botonDesplImagenes" onclick="imagenSiguiente(<?php echo $stringParaPasarPorParametroAlJs; ?>)"> > </button>
-=======
-						<div class="contenedorImagen">
-							<?php //retorno de imagen?>
-							<img src="imagenesProductos/<?php echo $subasta['idImagenPrincipal'][0]; ?>.jpg">
-						<!--<img src="<?php// echo("imagenesProductos/".$arts["idImagenPrincipal"][$fila].".jpg");?>"> -->
-						</div>
-						
-						<button class="botonDesplImagenes" onclick="unScriptReCopado()"> < </button>
-						<div class="indiceDeImagenes">
-							<p>Imagen: I de N<?php //imprime i/n?></p> 
-						</div>
-						<button class="botonDesplImagenes" onclick="otroScriptReCopado()"> > </button>
->>>>>>> origin/ramaMiguel
 					</div>
 					
 					<div class="contenedorInfoEstado">
@@ -104,7 +72,6 @@ $imagenes = bddObtener("idImagen", "Imagen", " idSubasta", $idSubasta, "", "exac
 						</div>
 						
 						<div class="contenedorElimSub">
-<<<<<<< HEAD
 						
 						<!-- function insertarContenidoEnVentanaModal(pathContenidoVentanaModal){ en el path se pueden pasar parametros GET -->
 							<?php 
@@ -113,9 +80,6 @@ $imagenes = bddObtener("idImagen", "Imagen", " idSubasta", $idSubasta, "", "exac
 							$hrefBotonConfirmarVentanaModal = "resultadoDeEliminacion.php?idSubasta=".$idSubasta;
 							?>
 							<a class="botonElimSub"  id="botonElimSubasta" style="display:none;" onclick="insertarContenidoEnVentanaModal('ventanaConfirmacion.php?mensaje=<?php echo $mensaje; ?>&href=<?php echo $hrefBotonConfirmarVentanaModal; ?>')" > Eliminar esta subasta </a>
-=======
-							<a class="botonElimSub" href="resultadoDeEliminacion.php?idSubasta=<?php echo $idSubasta; ?>" id="botonElimSubasta" style="display:none;"> Eliminar esta subasta </a>
->>>>>>> origin/ramaMiguel
 						</div>
 						
 						<div class="contenedorOfertar">
@@ -161,18 +125,10 @@ $imagenes = bddObtener("idImagen", "Imagen", " idSubasta", $idSubasta, "", "exac
 		</section>
 	</section>
 	<?php include 'footer.php'; ?>
-<<<<<<< HEAD
 </body>
 
 <?php include 'ventanaModal.php'; ?>
 
-=======
-	
-	<!-- VENTANA MODAL -->
-	<?php include 'ventanaModal.php'; ?>
-	
-</body>
->>>>>>> origin/ramaMiguel
 </html>
 
 <?php 
