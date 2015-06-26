@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 <link rel="stylesheet" href="estilos/principal_header.css">
 <script type="text/javascript" src="scripts/principal_header.js"></script> 
 
+=======
+<?php 
+session_start();
+?>	
+
+<link rel="stylesheet" href="estilos/principal_header.css">
+<script type="text/javascript" src="scripts/principal_header.js"></script>
+>>>>>>> origin/ramaMiguel
 <div class="nivel1">
 	<div class="logo"><img src="logo.png"></div>
 	<div class="tituloDePagina"><p>Bestnid</p></div>
@@ -18,6 +27,7 @@
 	
 	<section class="loginBar">
 		<ul>
+<<<<<<< HEAD
 			<li>
 				<div id="login" style="display:block;">
 					<a href="#" onclick="insertarContenidoEnVentanaModal('ventanaIniciarSesion.php')"> <!-- "abrirVentanaModal('modal','ventanaContenedor')" -->
@@ -40,11 +50,44 @@
 					<a href='formularioDeRegistro.html'> Registrarse </a>
 				</div>
 			</li>
+=======
+			<?php if(!isset($_SESSION['ingreso'])){ ?>
+				<li>
+					<div id="login" style="display:block;">
+					
+						<a href="#" onclick="abrirVentanaModal('contenidoVentanaLogin','modal','ventanaContenedor')">
+							 <label>Ingresar</label>
+
+						</a> 
+					</div>
+				</li>
+				<li>
+					<div id="registrarse" >
+						<a href='formularioDeRegistro.html'> Registrarse </a>
+					</div>
+				
+				</li>
+			<?php } else{ ?>
+			<li>
+				<div id="on" >
+					<a href="miCuenta.php">  <?php	echo($_SESSION['nombre']); ?>  </a>
+				</div>
+			</li>
+			<li>
+				<div id="logout">
+					<a href="principalOficial.php" onclick="cerrar()"> Cerrar Sesion</a>
+				</div>
+			</li>
+			<?php } ?>
+			
+			
+>>>>>>> origin/ramaMiguel
 		</ul>
 	</section>
 </div>	
 
 
+<<<<<<< HEAD
 <?php 
 session_start();
 if (isset($_SESSION['ingreso'])) {
@@ -58,3 +101,5 @@ if (isset($_SESSION['ingreso'])) {
 <?php 
 }
 ?>	
+=======
+>>>>>>> origin/ramaMiguel

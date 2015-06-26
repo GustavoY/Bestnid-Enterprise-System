@@ -1,6 +1,10 @@
 <link rel="stylesheet" href="estilos/ventanaIniciarSesion.css">
 
+<<<<<<< HEAD
 <div id="contenidoVentanaLogin" class="contenidoVentanaLogin">
+=======
+<div id="contenidoVentanaLogin" class="contenidoVentanaLogin" style="display:none">
+>>>>>>> origin/ramaMiguel
 		
 	<div class="tituloVentanaLogin">
 		 <p align=center>Ingresar a Mi cuenta</p>

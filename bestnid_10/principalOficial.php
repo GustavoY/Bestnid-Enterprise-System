@@ -10,9 +10,17 @@
 
 <body>
 	<header>
+<<<<<<< HEAD
 	<?php include '/principal_header.php'; ?> 
 	</header>
 	
+=======
+	<?php 
+		include '/principal_header.php'; // tiene que estar en esta parte 
+		//xq se tiene que ejecutar el javascript del principal el metodo iniciarsecion()
+	 ?> 
+	</header>
+>>>>>>> origin/ramaMiguel
 	<section class="main">
 		<aside>
 			<div class="filtroDeBusqueda">
@@ -55,17 +63,61 @@
 		
 		<section class="articles" id="articles"> <?php
 			$arts = bddObtener("titulo, idImagenPrincipal, idSubasta", "Subasta", "", "", "", "", "AND (fechaVencimiento > \"".fechaActual()."\")"); 
+<<<<<<< HEAD
 			//function bddObtener($columnas, $tabla, $criterioDeBusqueda, $discriminante, $criterioDeOrden, $patronOExacto, $condWhereAdicionales)
 			//la documentacion de los parametros de la funcion invocada bddObtenerArticulos esta dentro de la implementacion de la funcion. 
 			//idSubasta se necesita para mandarlo por metodo GET a la pagina de detalle de subasta.
 			
+=======
+			//function bddObtenerArticulos($columnas, $tabla, $criterioDeBusqueda, $discriminante, $criterioDeOrden, $patronOExacto)
+			//la documentacion de los parametros de la funcion invocada bddObtenerArticulos esta dentro de la implementacion de la funcion. 
+			//idSubasta se necesita para mandarlo por metodo GET a la pagina de detalle de subasta.
+>>>>>>> origin/ramaMiguel
 			include "imprimirArticulos.php"; ?>
 		</section> 		
 	</section>
 	
 	<?php include 'footer.php' ?>
 	
+<<<<<<< HEAD
 	<?php include 'ventanaModal.php'; ?>
 	
+=======
+	<!-- VENTANA MODAL -->
+	<?php include 'ventanaModal.php'; ?>
+	
+	<!-- ----------- Ventanas modales --------------- -->
+<!--	
+	<div id="modal" style="display:none" onclick="cerrarVentanaModal('ventanaContenedor','contenidoVentanaLogin','modal','alertaFaltaCuenta','alertaFaltaContraseña')"></div>
+	<div id="ventanaContenedor" class="ventanaContenedor" style="display:none">
+	
+		<a href="#close" title="Cerrar" onclick="cerrarVentanaModal('ventanaContenedor','contenidoVentanaLogin','modal','alertaFaltaCuenta','alertaFaltaContraseña')">X</a>
+		
+		<div id="contenidoVentanaLogin" class="contenidoVentanaLogin" style="display:none">
+		
+			<div class="tituloVentanaLogin"> <p>Ingresar a Mi cuenta</p> </div>
+			<div class="contenedorLinea">
+				<div class="contenedorLabel"> <label for="loginCuenta"> Cuenta: </label> </div>
+				<input type="text" placeholder="Escriba su cuenta" name="cuenta" id="loginCuenta">
+				<br>
+			</div>
+			<div class="contenedorLinea">
+				<div class="contenedorLabel"> <label for="loginContraseña"> Contrase&ntilde;a: </label> </div>
+				<input type="password" placeholder="Escriba su contrase&ntilde;a" name="contraseña" id="loginContraseña">
+				<a href="#"> Olvid&eacute; mi contrase&ntilde;a </a>
+			</div>		
+			<div class="buttLoginContenedor">
+				<input type="button" name="buttonLogin" value="Ingresar" onclick="validarFormLogin('loginCuenta','loginContraseña','alertaFaltaCuenta','alertaFaltaContraseña');"> 
+				<div class="alertaFaltaCuenta" id="alertaFaltaCuenta" style="display:none"> Debe escribir su cuenta! </div>
+				<div class="alertaFaltaContraseña" id="alertaFaltaContraseña" style="display:none"> Debe escribir su contrase&ntilde;a! </div>			
+			</div>			
+			<div class="footerVentanaLogin">
+				<hr>
+				<p> &iquest;A&uacute;n no tienes una cuenta? </p> <a href="#"> Reg&iacute;strate </a>
+			</div>	
+		</div>		
+	</div>	-->
+	
+>>>>>>> origin/ramaMiguel
 </body>
 </html>

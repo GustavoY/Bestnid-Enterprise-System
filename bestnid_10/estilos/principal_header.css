@@ -15,7 +15,11 @@ header, .main, footer {
 }
 
 .nivel1 {
+<<<<<<< HEAD
 	height:35px;
+=======
+	height:35px/**//**/;
+>>>>>>> origin/ramaMiguel
 	display:block;
 	clear:right;
 	margin-bottom:5px;
