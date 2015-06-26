@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="estilos/ventanaIniciarSesion.css">
 
-<div id="contenidoVentanaLogin" class="contenidoVentanaLogin" style="display:none">
+<div id="contenidoVentanaLogin" class="contenidoVentanaLogin">
 		
 	<div class="tituloVentanaLogin">
 		 <p align=center>Ingresar a Mi cuenta</p>

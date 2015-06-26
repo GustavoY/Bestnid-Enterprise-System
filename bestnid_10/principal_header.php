@@ -1,9 +1,6 @@
-<?php 
-session_start();
-?>	
-
 <link rel="stylesheet" href="estilos/principal_header.css">
-<script type="text/javascript" src="scripts/principal_header.js"></script>
+<script type="text/javascript" src="scripts/principal_header.js"></script> 
+
 <div class="nivel1">
 	<div class="logo"><img src="logo.png"></div>
 	<div class="tituloDePagina"><p>Bestnid</p></div>
@@ -21,38 +18,43 @@ session_start();
 	
 	<section class="loginBar">
 		<ul>
-			<?php if(!isset($_SESSION['ingreso'])){ ?>
-				<li>
-					<div id="login" style="display:block;">
-					
-						<a href="#" onclick="abrirVentanaModal('contenidoVentanaLogin','modal','ventanaContenedor')">
-							 <label>Ingresar</label>
-
-						</a> 
-					</div>
-				</li>
-				<li>
-					<div id="registrarse" >
-						<a href='formularioDeRegistro.html'> Registrarse </a>
-					</div>
-				
-				</li>
-			<?php } else{ ?>
 			<li>
-				<div id="on" >
-					<a href="miCuenta.php">  <?php	echo($_SESSION['nombre']); ?>  </a>
+				<div id="login" style="display:block;">
+					<a href="#" onclick="insertarContenidoEnVentanaModal('ventanaIniciarSesion.php')"> <!-- "abrirVentanaModal('modal','ventanaContenedor')" -->
+						 <label>Ingresar</label>
+					</a> 
 				</div>
 			</li>
 			<li>
-				<div id="logout">
+				<div id="on" style="display:none;">
+					<a href="miCuenta.php"> Mi Cuenta </a>
+				</div>
+			</li>
+			<li>
+				<div id="logout" style="display:none;">
 					<a href="principalOficial.php" onclick="cerrar()"> Cerrar Sesion</a>
 				</div>
 			</li>
-			<?php } ?>
-			
-			
+			<li>
+				<div id="registrarse" >
+					<a href='formularioDeRegistro.html'> Registrarse </a>
+				</div>
+			</li>
 		</ul>
 	</section>
 </div>	
 
 
+<?php 
+session_start();
+if (isset($_SESSION['ingreso'])) {
+?>
+	<script>
+		$('#logout').show();
+		$('#login').hide();
+		$('#on').show();
+		$('#registrarse').hide();
+	</script>
+<?php 
+}
+?>	

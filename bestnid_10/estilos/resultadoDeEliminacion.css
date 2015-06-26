@@ -4,6 +4,34 @@
 	padding:0;
 }
 
+.nivel1 {
+	height:35px;
+	display:block;
+	clear:right;
+	margin-bottom:5px;
+}
+
+.nivel1 .logo img {
+	width:auto;
+	height:35px/**/;
+	float:left;
+	margin-right:0.5%;
+}
+
+.nivel1 .tituloDePagina p {
+	font-size:30px;
+	font-weight:bold;
+	color:#bd0000;
+	float:left;
+	margin-right:4.5%;
+}
+
+.nivel1 .slogan p {
+	font-size:20px;
+	color:#585858;
+	padding-top:10px;
+}
+
 .main .mensaje{
 	font-size:20px;
 	margin:15px;
