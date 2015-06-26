@@ -1,0 +1,60 @@
+.main .articles article a {
+	text-decoration:none;
+	border-style:solid;
+	border-color:#DADADA;
+	border-width:1px;
+	padding:5px;
+	width:137px;
+	float:left;
+	margin:3px;
+	box-sizing:border-box;
+/*	overflow:hidden; */
+
+} 
+
+.main .articles article a:hover {
+	border-color:#a60000;
+	cursor:pointer;
+	/*white-space:normal;*/ /* Hace que si el texto supera la linea siga en la de abajo, si se deja en "nowrap" el parrafo
+sigue estrictamente una sola linea saliendose de los contenedores*/ 
+	background-color:#fff;
+	/*overflow:visible;*/
+}
+
+.main .articles article a p {
+	overflow:hidden;
+    text-overflow:ellipsis;
+	white-space:nowrap;  
+	margin:2px;
+}
+/*	white-space:normal;*/
+	  /*Hace que si el texto supera la linea siga en la de abajo, si se deja en "nowrap" el parrafo
+sigue estrictamente una sola linea saliendose de los contenedores*/ 
+/*	overflow:visible; */
+
+.main .articles article a .descripcion .titulo p {
+	font-size:12px;
+	color:#0000FF; 
+}
+
+.main .articles .contenedorImagen {	
+	border-style:solid;
+	border-width:1px;
+	border-color:#EFEFEF;
+	box-sizing:border-box;
+	height:126px;
+	width:126px;
+    position: relative;
+}
+	
+.main .articles article img {	
+	max-height:120px;
+	max-width:120px;
+	margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    float: left; /**/
+}
